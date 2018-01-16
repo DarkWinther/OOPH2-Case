@@ -12,7 +12,7 @@ namespace OOPH2_Case_Form
         static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
         static SqlCommand cmd = connection.CreateCommand();
 
-        static void Create(string databaseStr, string valuesStr)
+        public static void Create(string databaseStr, string valuesStr)
         {
 
             connection.Open();
