@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPH2_Case_Form
 {
-    class Kunde
+    class Database
     {
     }
 }

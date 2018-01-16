@@ -6,3 +6,4 @@ C:\Users\nijensen\Documents\GitHub\OOPH2-Case\OOPH2-Case Form\OOPH2-Case Form\ob
 C:\Users\nijensen\Documents\GitHub\OOPH2-Case\OOPH2-Case Form\OOPH2-Case Form\obj\Debug\OOPH2-Case Form.csproj.CoreCompileInputs.cache
 C:\Users\nijensen\Documents\GitHub\OOPH2-Case\OOPH2-Case Form\OOPH2-Case Form\obj\Debug\OOPH2-Case Form.exe
 C:\Users\nijensen\Documents\GitHub\OOPH2-Case\OOPH2-Case Form\OOPH2-Case Form\obj\Debug\OOPH2-Case Form.pdb
+C:\Users\nijensen\Documents\GitHub\OOPH2-Case\OOPH2-Case Form\OOPH2-Case Form\obj\Debug\OOPH2-Case Form.csprojResolveAssemblyReference.cache
