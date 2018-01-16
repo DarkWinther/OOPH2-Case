@@ -1,1 +1,5 @@
 OOPH2-CASE Form/.vs
+**/obj/Debug
+**/v15
+**/v15/Server
+**/v15/Server/sqlite3
