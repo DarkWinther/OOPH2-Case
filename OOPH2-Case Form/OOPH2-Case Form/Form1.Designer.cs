@@ -36,9 +36,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(79, 35);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(79, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 27);
+            this.button1.Size = new System.Drawing.Size(126, 40);
             this.button1.TabIndex = 0;
             this.button1.Text = "Tilføj Kevin";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(79, 68);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.Size = new System.Drawing.Size(126, 40);
             this.button2.TabIndex = 1;
             this.button2.Text = "Fjern Kevin";
             this.button2.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(79, 97);
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(79, 114);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 23);
+            this.button3.Size = new System.Drawing.Size(126, 40);
             this.button3.TabIndex = 2;
             this.button3.Text = "Update Kevin";
             this.button3.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(79, 126);
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(79, 160);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(126, 23);
+            this.button4.Size = new System.Drawing.Size(126, 40);
             this.button4.TabIndex = 3;
             this.button4.Text = "Read Kevin";
             this.button4.UseVisualStyleBackColor = true;
