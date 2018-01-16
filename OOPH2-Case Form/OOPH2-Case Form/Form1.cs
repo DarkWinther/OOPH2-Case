@@ -16,5 +16,11 @@ namespace OOPH2_Case_Form
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SQLAPI.Create("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato)",
+                "'Kevin', 'Winther', 2820, 'Ermelundsvej', CAST('2012-06-05 12:00' AS smalldatetime)");
+        }
     }
 }
