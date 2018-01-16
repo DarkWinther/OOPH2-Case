@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OOPH2_Case_Form
 {
@@ -41,7 +42,16 @@ namespace OOPH2_Case_Form
             try
             {
                 cmd.CommandText = "SELECT " + whattoselect + " FROM " + table;
-                cmd.ExecuteNonQuery();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            MessageBox.Show(reader.GetValue(i).ToString());
+                        }
+                    }
+                }
             }
             catch (Exception e)
             {
