@@ -5,7 +5,7 @@ IF DB_ID('OOPH2') IS NOT NULL
 	PRINT 'Datasen er allerede oprettet';
 ELSE BEGIN
 	CREATE DATABASE [OOPH2];
-	PRINT 'Opretter databasen OOPH2 Databasen';
+	PRINT 'Opretter databasen OOPH2';
 END
 GO
 
