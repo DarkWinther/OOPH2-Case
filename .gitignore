@@ -1,2 +1,4 @@
 !OOPH2-CASE Form/.vs/
 OOPH2-CASE Form/.vs/*
+!OOPH2-CASE Form/OOPH2-CASE Form/obj/Debug/
+OOPH2-CASE Form/OOPH2-CASE Form/obj/Debug/*
