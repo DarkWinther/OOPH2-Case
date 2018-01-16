@@ -9,17 +9,16 @@ namespace OOPH2_Case_Form
 {
     class SQLAPI
     {
-        static public void Create()
+        static public void Create(string type)
         {
             SqlConnection connection = new SqlConnection();
-            SqlCommand cmd;
+            SqlCommand cmd = connection.CreateCommand();
             connection.Open();
 
             try
             {
-
             }
-            catch
+            catch (Exception e)
             {
 
             }
@@ -33,14 +32,14 @@ namespace OOPH2_Case_Form
         static public void Read()
         {
             SqlConnection connection = new SqlConnection();
-            SqlCommand cmd;
+            SqlCommand cmd = connection.CreateCommand();
             connection.Open();
 
             try
             {
 
             }
-            catch
+            catch (Exception e)
             {
 
             }
@@ -54,14 +53,14 @@ namespace OOPH2_Case_Form
         static public void Update()
         {
             SqlConnection connection = new SqlConnection();
-            SqlCommand cmd;
+            SqlCommand cmd = connection.CreateCommand();
             connection.Open();
 
             try
             {
 
             }
-            catch
+            catch (Exception e)
             {
 
             }
@@ -75,14 +74,14 @@ namespace OOPH2_Case_Form
         static public void Delete()
         {
             SqlConnection connection = new SqlConnection();
-            SqlCommand cmd;
+            SqlCommand cmd = connection.CreateCommand();
             connection.Open();
 
             try
             {
 
             }
-            catch
+            catch (Exception e)
             {
 
             }
