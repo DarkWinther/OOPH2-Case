@@ -32,5 +32,10 @@ namespace OOPH2_Case_Form
         {
             SQLAPI.Update("Kunde", "TlfNr = 88888888", "KundeNr = 2");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SQLAPI.Read("*", "Kunde");
+        }
     }
 }
