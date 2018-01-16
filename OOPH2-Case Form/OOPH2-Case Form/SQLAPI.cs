@@ -54,14 +54,14 @@ namespace OOPH2_Case_Form
             }
         }
 
-        public static void Update()
+        public static void Update(string table, string values, string condition)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "INSERT INTO " + databaseStr + " values(" + valuesStr + ")";
+                cmd.CommandText = "UPDATE " + table + " SET " + values + " WHERE " + condition;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
