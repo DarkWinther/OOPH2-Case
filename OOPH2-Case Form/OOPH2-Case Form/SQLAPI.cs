@@ -12,14 +12,14 @@ namespace OOPH2_Case_Form
         static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
         static SqlCommand cmd = connection.CreateCommand();
 
-        static void Create(string databaseStr, string valuesStr)
+        static void Create(string table, string values)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "INSERT INTO " + databaseStr + " values(" + valuesStr + ")";
+                cmd.CommandText = "INSERT INTO " + table + " values(" + values + ")";
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -33,14 +33,15 @@ namespace OOPH2_Case_Form
             }
         }
 
-        static public void Read()
+        static public void Read(string whattoselect, string table)
         {
 
             connection.Open();
 
             try
             {
-
+                cmd.CommandText = "SELECT " + whattoselect + " FROM " + table;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -60,7 +61,8 @@ namespace OOPH2_Case_Form
 
             try
             {
-
+                cmd.CommandText = "INSERT INTO " + databaseStr + " values(" + valuesStr + ")";
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -73,14 +75,15 @@ namespace OOPH2_Case_Form
             }
         }
 
-        static public void Delete()
+        static public void Delete(string table)
         {
 
             connection.Open();
 
             try
             {
-
+                cmd.CommandText = "INSERT INTO " + databaseStr + " values(" + valuesStr + ")";
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
