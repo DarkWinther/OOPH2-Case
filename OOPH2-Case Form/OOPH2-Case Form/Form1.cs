@@ -22,5 +22,15 @@ namespace OOPH2_Case_Form
             SQLAPI.Create("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato)",
                 "'Kevin', 'Winther', 2820, 'Ermelundsvej', CAST('2012-06-05 12:00' AS smalldatetime)");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SQLAPI.Delete("Kunde", "KundeNr", 1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SQLAPI.Update("Kunde", "TlfNr = 88888888", "KundeNr = 2");
+        }
     }
 }
