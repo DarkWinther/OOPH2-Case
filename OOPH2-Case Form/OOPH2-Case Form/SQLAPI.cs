@@ -9,18 +9,22 @@ namespace OOPH2_Case_Form
 {
     class SQLAPI
     {
-        static public void Create(string type)
+        static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
+        static SqlCommand cmd = connection.CreateCommand();
+
+        static void Create(string databaseStr, string valuesStr)
         {
-            SqlConnection connection = new SqlConnection();
-            SqlCommand cmd = connection.CreateCommand();
+
             connection.Open();
 
             try
             {
+                cmd.CommandText = "INSERT INTO " + databaseStr + " values(" + valuesStr + ")";
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-
+                throw;
             }
             finally
             {
@@ -31,8 +35,7 @@ namespace OOPH2_Case_Form
 
         static public void Read()
         {
-            SqlConnection connection = new SqlConnection();
-            SqlCommand cmd = connection.CreateCommand();
+
             connection.Open();
 
             try
@@ -52,8 +55,7 @@ namespace OOPH2_Case_Form
 
         static public void Update()
         {
-            SqlConnection connection = new SqlConnection();
-            SqlCommand cmd = connection.CreateCommand();
+
             connection.Open();
 
             try
@@ -73,8 +75,7 @@ namespace OOPH2_Case_Form
 
         static public void Delete()
         {
-            SqlConnection connection = new SqlConnection();
-            SqlCommand cmd = connection.CreateCommand();
+
             connection.Open();
 
             try
