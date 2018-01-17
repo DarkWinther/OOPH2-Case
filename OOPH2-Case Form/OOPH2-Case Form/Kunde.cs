@@ -25,5 +25,33 @@ namespace OOPH2_Case_Form
         public string adresse { get { return _adresse; } set { _adresse = value; } }
         public int tlfNr { get { return _tlfNr; } set { _tlfNr = value; } }
         public DateTime oprettelsesdato { get { return _oprettelsesdato; } set { _oprettelsesdato = value; } }
+
+        public Kunde()
+        {
+            oprettelsesdato = DateTime.Now;
+        }
+
+        public Kunde(int kundeNr) : this()
+        {
+            this.kundeNr = kundeNr;
+        }
+
+        public Kunde(int kundeNr, string fornavn, string efternavn) : this(kundeNr)
+        {
+            this.fornavn = fornavn;
+            this.efternavn = efternavn;
+        }
+
+        public Kunde(int kundeNr, string fornavn, string efternavn, int postNr, string byNavn, string adresse) : this(kundeNr, fornavn, efternavn)
+        {
+            this.postNr = postNr;
+            this.byNavn = byNavn;
+            this.adresse = adresse;
+        }
+
+        public Kunde(int kundeNr, string fornavn, string efternavn, int postNr, string byNavn, string adresse, int tlfNr) : this(kundeNr, fornavn, efternavn, postNr, byNavn, adresse)
+        {
+            this.tlfNr = tlfNr;
+        }
     }
 }
