@@ -12,6 +12,7 @@ namespace OOPH2_Case_Form
         private string _fornavn;
         private string _efternavn;
         private int _postNr;
+        private string _byNavn;
         private string _adresse;
         private int _tlfNr;
         private DateTime _oprettelsesdato;
@@ -20,6 +21,7 @@ namespace OOPH2_Case_Form
         public string fornavn { get { return _fornavn; } set { _fornavn = value; } }
         public string efternavn { get { return _efternavn; } set { _efternavn = value; } }
         public int postNr { get { return _postNr; } set { _postNr = value; } }
+        public string byNavn { get { return _byNavn; } set { _byNavn = value; } }
         public string adresse { get { return _adresse; } set { _adresse = value; } }
         public int tlfNr { get { return _tlfNr; } set { _tlfNr = value; } }
         public DateTime oprettelsesdato { get { return _oprettelsesdato; } set { _oprettelsesdato = value; } }
