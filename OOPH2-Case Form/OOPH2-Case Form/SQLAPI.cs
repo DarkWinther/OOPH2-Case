@@ -34,7 +34,7 @@ namespace OOPH2_Case_Form
             }
         }
 
-        public static dynamic Read(string sqlstring)
+        public static void Read(string sqlstring)
         {
 
             connection.Open();
@@ -48,22 +48,20 @@ namespace OOPH2_Case_Form
                     {
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            return reader.GetValue(i);
+                            MessageBox.Show(reader.GetValue(i).ToString());
                         }
                     }
                 }
             }
             catch (Exception e)
             {
-
+                throw;
             }
             finally
             {
                 if (connection.State == System.Data.ConnectionState.Open)
                     connection.Close();
             }
-
-            return "Error";
         }
 
         public static void Update(string sqlstring)
@@ -78,7 +76,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-
+                throw;
             }
             finally
             {
@@ -99,7 +97,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-
+                throw;
             }
             finally
             {
