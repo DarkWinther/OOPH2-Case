@@ -13,14 +13,14 @@ namespace OOPH2_Case_Form
         static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
         static SqlCommand cmd = connection.CreateCommand();
 
-        public static void Create(string table, string values)
+        public static void Create(string sqlstring)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "INSERT INTO " + table + " values(" + values + ")";
+                cmd.CommandText = "INSERT INTO " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -34,14 +34,14 @@ namespace OOPH2_Case_Form
             }
         }
 
-        public static void Read(string whattoselect, string table)
+        public static void Read(string sqlstring)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "SELECT " + whattoselect + " FROM " + table;
+                cmd.CommandText = "SELECT " + sqlstring;
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while(reader.Read())
@@ -64,14 +64,14 @@ namespace OOPH2_Case_Form
             }
         }
 
-        public static void Update(string table, string values, string condition)
+        public static void Update(string sqlstring)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "UPDATE " + table + " SET " + values + " WHERE " + condition;
+                cmd.CommandText = "UPDATE " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -85,14 +85,14 @@ namespace OOPH2_Case_Form
             }
         }
 
-        public static void Delete(string table, string columnname, int value)
+        public static void Delete(string sqlstring)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "DELETE FROM " + table + " WHERE " + columnname + " = " + value;
+                cmd.CommandText = "DELETE FROM " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)

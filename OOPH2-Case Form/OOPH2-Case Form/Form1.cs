@@ -19,23 +19,22 @@ namespace OOPH2_Case_Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SQLAPI.Create("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato)",
-                "'Kevin', 'Winther', 2820, 'Ermelundsvej', CAST('2012-06-05 12:00' AS smalldatetime)");
+            SQLAPI.Create("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) Values('Kevin', 'Winther', 2820, 'Ermelundsvej', CAST('2012-06-05 12:00' AS smalldatetime))");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SQLAPI.Delete("Kunde", "KundeNr", 1);
+            SQLAPI.Delete("Kunde WHERE KundeNr = 1");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SQLAPI.Update("Kunde", "TlfNr = 88888888", "KundeNr = 2");
+            SQLAPI.Update("Kunde SET TlfNr = 88888888 WHERE KundeNr = 2");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SQLAPI.Read("*", "Kunde");
+            SQLAPI.Read("* FROM Kunde");
         }
     }
 }
