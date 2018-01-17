@@ -10,7 +10,7 @@ namespace OOPH2_Case_Form
 {
     class SQLAPI
     {
-        static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
+        public static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
         static SqlCommand cmd = connection.CreateCommand();
 
         public static void Create(string sqlstring)
