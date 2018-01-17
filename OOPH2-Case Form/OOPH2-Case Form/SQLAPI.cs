@@ -42,24 +42,15 @@ namespace OOPH2_Case_Form
         /// Read SQL statement
         /// </summary>
         /// <param name="sqlstring"></param>
-        public static void Read(string sqlstring)
+        public static SqlDataAdapter Read(string sqlstring)
         {
 
             connection.Open();
 
             try
             {
-                cmd.CommandText = "SELECT " + sqlstring;
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while(reader.Read())
-                    {
-                        for (int i = 0; i < reader.FieldCount; i++)
-                        {
-                            MessageBox.Show(reader.GetValue(i).ToString());
-                        }
-                    }
-                }
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT " + sqlstring, connection);
+                return adapter;
             }
             catch (Exception e)
             {
@@ -70,6 +61,8 @@ namespace OOPH2_Case_Form
                 if (connection.State == System.Data.ConnectionState.Open)
                     connection.Close();
             }
+
+            return null;
         }
 
         /// <summary>
