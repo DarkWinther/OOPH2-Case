@@ -53,5 +53,30 @@ namespace OOPH2_Case_Form
         {
             this.tlfNr = tlfNr;
         }
+
+        public void ListKundeData()
+        {
+
+        }
+
+        public void KontiList()
+        {
+
+        }
+
+        public void OpretKunde()
+        {
+
+        }
+
+        public void OpdaterKunde()
+        {
+
+        }
+
+        public void FjernKunde()
+        {
+
+        }
     }
 }
