@@ -14,7 +14,7 @@ namespace OOPH2_Case_Form
     public partial class Form1 : Form
     {
         private enum PanelState { Empty, OpretKunde, FjernKunde, OpretKonto, FjernKonto, HævBeløb, IndsætBeløb }
-        private SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Kunde;", SQLAPI.connection);
+        private SqlDataAdapter adapter = new SqlDataAdapter("SELECT CONCAT(Fornavn, ' ', Efternavn, ' | ', KundeNr) AS Navn FROM Kunde;", SQLAPI.connection);
         private DataTable table = new DataTable();
         private PanelState ps = PanelState.Empty;
 
@@ -27,7 +27,7 @@ namespace OOPH2_Case_Form
         {
             adapter.Fill(table);
             comboBox1.DataSource = table;
-            comboBox1.DisplayMember = "Fornavn";
+            comboBox1.DisplayMember = "Navn";
         }
 
         //Submit
@@ -130,6 +130,28 @@ namespace OOPH2_Case_Form
         private void button13_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Update kundeinfo
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        //Søg i comboBox1
+        private void comboBox1_TextUpdate(object sender, EventArgs e)
+        {
+            table.Clear();
+            SQLAPI.Read("KundeNr, Fornavn, Efternavn FROM Kunde WHERE Fornavn LIKE '%" +
+                comboBox1.Text + "%' OR Efternavn LIKE '%" + comboBox1.Text + "%' OR KundeNr LIKE '" +
+                comboBox1.Text + "%';");
+            adapter.Fill(table);
+        }
+
+        //Vælg al tekst i comboBox1
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            comboBox1.SelectAll();
         }
 
         private void HideAll()

@@ -151,6 +151,9 @@
             this.comboBox1.Size = new System.Drawing.Size(214, 24);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.Text = "Vælg kunde:";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.TextUpdate += new System.EventHandler(this.comboBox1_TextUpdate);
+            this.comboBox1.Enter += new System.EventHandler(this.comboBox1_Enter);
             // 
             // panel1
             // 
