@@ -25,7 +25,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -55,7 +55,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -76,7 +76,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -97,7 +97,7 @@ namespace OOPH2_Case_Form
             }
             catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
             finally
             {
