@@ -13,7 +13,11 @@ namespace OOPH2_Case_Form
         public static SqlConnection connection = new SqlConnection(@"Server=localhost;Database=OOPH2;Trusted_Connection=True;");
         static SqlCommand cmd = connection.CreateCommand();
 
-        public static void Create(string sqlstring)
+        /// <summary>
+        /// Insert SQL statement
+        /// </summary>
+        /// <param name="sqlstring"></param>
+        public static void Insert(string sqlstring)
         {
 
             connection.Open();
@@ -34,6 +38,10 @@ namespace OOPH2_Case_Form
             }
         }
 
+        /// <summary>
+        /// Read SQL statement
+        /// </summary>
+        /// <param name="sqlstring"></param>
         public static void Read(string sqlstring)
         {
 
@@ -64,6 +72,10 @@ namespace OOPH2_Case_Form
             }
         }
 
+        /// <summary>
+        /// Update SQL statement
+        /// </summary>
+        /// <param name="sqlstring"></param>
         public static void Update(string sqlstring)
         {
 
@@ -85,6 +97,10 @@ namespace OOPH2_Case_Form
             }
         }
 
+        /// <summary>
+        /// Delete SQL statement
+        /// </summary>
+        /// <param name="sqlstring"></param>
         public static void Delete(string sqlstring)
         {
 
