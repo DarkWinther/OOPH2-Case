@@ -23,7 +23,7 @@ INSERT INTO Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES('
 INSERT INTO Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES('Johan', 'McD', 2820, 'Ermelundsvej 1', CAST('2012-06-05 12:00' AS smalldatetime))
 INSERT INTO Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES('Felix', 'Von And', 2820, 'Ermelundsvej 2', CAST('2012-06-05 12:00' AS smalldatetime))
 INSERT INTO Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES('Hans', 'Von Prank', 2820, 'Prankvej 69', CAST('2012-06-05 12:00' AS smalldatetime))
-go 1000
+go
 
 INSERT INTO KontoType(TypeNavn, Rentesats) VALUES('Ingen rente Whoops vi mener du betale vi bruger', -0.5)
 INSERT INTO KontoType(TypeNavn, Rentesats) VALUES('Lidt rente', 0.3)
