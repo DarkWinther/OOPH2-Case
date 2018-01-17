@@ -38,5 +38,45 @@ namespace OOPH2_Case_Form
             this.renteSats = renteSats;
             this.saldo = saldo;
         }
+
+        public void ListKontoData()
+        {
+
+        }
+
+        public void ListTransaktioner()
+        {
+
+        }
+
+        public void OpretKonto()
+        {
+
+        }
+
+        public void FjernKonto()
+        {
+
+        }
+
+        public void RetRentesats()
+        {
+
+        }
+
+        public void UdrengRente()
+        {
+
+        }
+
+        public void Indbetaling()
+        {
+
+        }
+
+        public void Udbetaling()
+        {
+
+        }
     }
 }
