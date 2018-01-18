@@ -56,12 +56,12 @@ namespace OOPH2_Case_Form
 
         public void ListKundeData()
         {
-
+            SQLAPI.Read("* FROM Kunde WHERE KundeNr = " + kundeNr);
         }
 
         public void KontiList()
         {
-
+            SQLAPI.Read("KontoNr FROM Konto WHERE KundeNr = " + kundeNr);
         }
 
         public void OpretKunde()

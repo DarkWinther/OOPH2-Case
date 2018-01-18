@@ -41,12 +41,12 @@ namespace OOPH2_Case_Form
 
         public void ListKontoData()
         {
-
+            SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
         }
 
         public void ListTransaktioner()
         {
-
+            SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + kontoNr);
         }
 
         public void OpretKonto()
