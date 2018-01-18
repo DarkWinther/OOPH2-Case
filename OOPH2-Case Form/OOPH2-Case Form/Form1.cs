@@ -61,6 +61,8 @@ namespace OOPH2_Case_Form
                 default:
                     break;
             }
+            Clear(textBox1, textBox2, textBox3, textBox4, textBox5);
+            comboBox2.ResetText();
         }
 
         //Opret Kunde
@@ -209,6 +211,14 @@ namespace OOPH2_Case_Form
                 table.Clear();
                 textBox6.Clear();
                 MessageBox.Show("Error!\n\n" + exc.Message);
+            }
+        }
+
+        private void Clear(params TextBox[] txt)
+        {
+            foreach (var item in txt)
+            {
+                item.Clear();
             }
         }
 
