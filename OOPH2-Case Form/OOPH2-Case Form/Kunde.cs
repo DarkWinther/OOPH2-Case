@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace OOPH2_Case_Form
 {
@@ -93,9 +94,29 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// Updates a kunde
         /// </summary>
-        public void OpdaterKunde()
+        public void OpdaterKunde(int type)
         {
-            SQLAPI.Update("");
+            switch (type)
+            {
+                case 1:
+                    SQLAPI.Update("Kunde SET Fornavn = " + fornavn + " WHERE KundeNr = " + kundeNr);
+                    break;
+                case 2:
+                    SQLAPI.Update("Kunde SET Efternavn = " + efternavn + " WHERE KundeNr = " + kundeNr);
+                    break;
+                case 3:
+                    SQLAPI.Update("Kunde SET Adresse = " + adresse + " WHERE KundeNr = " + kundeNr);
+                    break;
+                case 4:
+                    SQLAPI.Update("Kunde SET PostNr = " + postNr + " WHERE KundeNr = " + kundeNr);
+                    break;
+                case 5:
+                    SQLAPI.Update("Kunde SET TlfNr = " + tlfNr + " WHERE KundeNr = " + kundeNr);
+                    break;
+                default:
+                    MessageBox.Show("Error\nIf you find a developer give him/her this message: OpdaterKunde() did not lead to anything.");
+                    break;
+            }
         }
 
         /// <summary>
