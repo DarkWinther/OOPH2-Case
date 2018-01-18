@@ -64,7 +64,7 @@ namespace OOPH2_Case_Form
 
         }
 
-        public void UdrengRente()
+        public void UdregnRente()
         {
 
         }
