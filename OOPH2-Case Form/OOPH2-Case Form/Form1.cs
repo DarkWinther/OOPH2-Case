@@ -169,9 +169,9 @@ namespace OOPH2_Case_Form
         {
             int day, month, year, hour, minute, second;
             string[] temp = oprettelsesdato.Split();
-            year = Int32.Parse(temp[0].Split('-')[0]);
-            day = Int32.Parse(temp[0].Split('-')[1]);
-            month = Int32.Parse(temp[0].Split('-')[2]);
+            day = Int32.Parse(temp[0].Split('/')[0]);
+            month = Int32.Parse(temp[0].Split('/')[1]);
+            year = Int32.Parse(temp[0].Split('/')[2]);
             hour = Int32.Parse(temp[1].Split(':')[0]);
             minute = Int32.Parse(temp[1].Split(':')[1]);
             second = Int32.Parse(temp[1].Split(':')[2]);
@@ -183,11 +183,14 @@ namespace OOPH2_Case_Form
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string searchVal = textBox6.Text.Split(':').Last();
-                adapter = SQLAPI.Read("KundeNr FROM Kunde WHERE KundeNr LIKE '%" + searchVal + "'");
+                string searchVal = textBox6.Text.Split('|').Last();
+                searchVal = searchVal.Substring(1);
+                adapter = SQLAPI.Read("* FROM Kunde WHERE KundeNr LIKE '%" + searchVal + "'");
+                table.Clear();
                 adapter.Fill(table);
                 if (table.Rows.Count != 1)
                 {
+                    MessageBox.Show(table.Rows.Count.ToString());
                     throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
                 }
                 else
