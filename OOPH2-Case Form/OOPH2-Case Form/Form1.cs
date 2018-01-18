@@ -89,8 +89,10 @@ namespace OOPH2_Case_Form
         {
             adapter = valgteKunde.KontiList();
             table.Clear();
+            table.Columns.Clear();
             adapter.Fill(table);
             dataGridView1.DataSource = table;
+            dataGridView1.AutoResizeColumns();
             button13.Enabled = true;
         }
 
@@ -159,7 +161,7 @@ namespace OOPH2_Case_Form
                     if (String.IsNullOrWhiteSpace(textBox6.Text))
                         return;
                     string searchVal = textBox6.Text.Split('|').Last();
-                    searchVal.Trim();
+                    searchVal = searchVal.Trim();
                     if (String.IsNullOrEmpty(searchVal))
                     {
                         int n;
@@ -180,6 +182,7 @@ namespace OOPH2_Case_Form
                             table.Rows[0]["Efternavn"].ToString());
                         valgteKunde.postNr = (int)table.Rows[0]["PostNr"];
                         valgteKunde.adresse = table.Rows[0]["Adresse"].ToString();
+                        valgteKunde.byNavn = table.Rows[0]["Bynavn"].ToString();
                         valgteKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
                         if (!String.IsNullOrEmpty(table.Rows[0]["TlfNr"].ToString()))
                             valgteKunde.tlfNr = Int32.Parse(table.Rows[0]["TlfNr"].ToString());
@@ -187,7 +190,7 @@ namespace OOPH2_Case_Form
                     label13.Text = valgteKunde.kundeNr.ToString();
                     label14.Text = valgteKunde.fornavn + " " + valgteKunde.efternavn;
                     label15.Text = valgteKunde.adresse;
-                    label16.Text = valgteKunde.postNr + " " + table.Rows[0]["ByNavn"];
+                    label16.Text = valgteKunde.postNr + " " + valgteKunde.byNavn;
                     label17.Text = valgteKunde.tlfNr == 0 ? "N/A" : valgteKunde.tlfNr.ToString();
                     Show(label13, label14, label15, label16, label17);
                     button8.Enabled = true;

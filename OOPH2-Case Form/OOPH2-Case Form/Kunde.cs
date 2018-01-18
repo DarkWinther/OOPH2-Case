@@ -80,7 +80,10 @@ namespace OOPH2_Case_Form
         /// </summary>
         public SqlDataAdapter KontiList()
         {
-            return SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
+            return SQLAPI.Read(
+                "KontoNr, Saldo, TypeNavn, Rentesats, OprettelsesDato " +
+                "FROM Konto, KontoType " +
+                "WHERE Konto.KontoType = KontoType.TypeNr AND KundeNr = " + kundeNr);
         }
 
         /// <summary>
