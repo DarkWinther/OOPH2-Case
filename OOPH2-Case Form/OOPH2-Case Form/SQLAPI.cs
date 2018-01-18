@@ -14,14 +14,12 @@ namespace OOPH2_Case_Form
         static SqlCommand cmd = connection.CreateCommand();
 
         /// <summary>
-        /// Insert SQL statement
+        /// Create a SQL Insert statement
         /// </summary>
         /// <param name="sqlstring"></param>
         public static void Insert(string sqlstring)
         {
-
             connection.Open();
-
             try
             {
                 cmd.CommandText = "INSERT INTO " + sqlstring;
@@ -39,14 +37,12 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Read SQL statement
+        /// Create a SQL Read statement
         /// </summary>
         /// <param name="sqlstring"></param>
         public static SqlDataAdapter Read(string sqlstring)
         {
-
             connection.Open();
-
             try
             {
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT " + sqlstring, connection);
@@ -66,14 +62,12 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Update SQL statement
+        /// Create a SQL Update statement
         /// </summary>
         /// <param name="sqlstring"></param>
         public static void Update(string sqlstring)
         {
-
             connection.Open();
-
             try
             {
                 cmd.CommandText = "UPDATE " + sqlstring;
@@ -91,14 +85,12 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Delete SQL statement
+        /// Create a SQL Delete statement
         /// </summary>
         /// <param name="sqlstring"></param>
         public static void Delete(string sqlstring)
         {
-
             connection.Open();
-
             try
             {
                 cmd.CommandText = "DELETE FROM " + sqlstring;

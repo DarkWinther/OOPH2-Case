@@ -17,6 +17,10 @@ namespace OOPH2_Case_Form
         private int _tlfNr;
         private DateTime _oprettelsesdato;
 
+        /// <summary>
+        /// Creates all the properties for Kunde
+        /// </summary>
+
         public int kundeNr { get { return _kundeNr; } set { _kundeNr = value; } }
         public string fornavn { get { return _fornavn; } set { _fornavn = value; } }
         public string efternavn { get { return _efternavn; } set { _efternavn = value; } }
@@ -25,6 +29,11 @@ namespace OOPH2_Case_Form
         public string adresse { get { return _adresse; } set { _adresse = value; } }
         public int tlfNr { get { return _tlfNr; } set { _tlfNr = value; } }
         public DateTime oprettelsesdato { get { return _oprettelsesdato; } set { _oprettelsesdato = value; } }
+
+
+        /// <summary>
+        /// Create all constructors for Kunde
+        /// </summary>
 
         public Kunde()
         {
@@ -55,7 +64,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Lists all the account data from the given kunde
         /// </summary>
         public void ListKundeData()
         {
@@ -63,7 +72,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Lists all the kontier from the given kunde
         /// </summary>
         public void KontiList()
         {
@@ -71,21 +80,21 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Creates a kunde
         /// </summary>
         public void OpretKunde()
         {
         }
 
         /// <summary>
-        /// 
+        /// Updates a kunde
         /// </summary>
         public void OpdaterKunde()
         {
         }
 
         /// <summary>
-        /// 
+        /// Removes the given kunde
         /// </summary>
         public void FjernKunde()
         {

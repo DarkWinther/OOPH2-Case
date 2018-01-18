@@ -15,12 +15,20 @@ namespace OOPH2_Case_Form
         private double _saldo;
         private DateTime _oprettelsesdato;
 
+        /// <summary>
+        /// Creates all the properties for Konto
+        /// </summary>
+
         public int kontoNr { get { return _kontoNr; } set { _kontoNr = value; } }
         public string typeNavn { get { return _typeNavn; } set { _typeNavn = value; } }
         public float renteSats { get { return _renteSats; } set { _renteSats = value; } }
         public int kundeNr { get { return _kundeNr; } set { _kundeNr = value; } }
         public double saldo { get { return _saldo; } set { _saldo = value; } }
         public DateTime oprettelsesdato { get { return _oprettelsesdato; } set { _oprettelsesdato = value; } }
+
+        /// <summary>
+        /// Create all constructors for Konto
+        /// </summary>
 
         public Konto()
         {
