@@ -35,7 +35,7 @@ namespace OOPH2_Case_Form
                 strColl.Add(table.Rows[i][0].ToString());
             }
             textBox6.AutoCompleteCustomSource = strColl;
-            Hide(label13, label14, label15, label16, label17);
+            Hide(label13, label14, label15, label16, label17, label18);
         }
 
         //Submit
@@ -192,7 +192,12 @@ namespace OOPH2_Case_Form
                     label15.Text = valgteKunde.adresse;
                     label16.Text = valgteKunde.postNr + " " + valgteKunde.byNavn;
                     label17.Text = valgteKunde.tlfNr == 0 ? "N/A" : valgteKunde.tlfNr.ToString();
-                    Show(label13, label14, label15, label16, label17);
+                    adapter = SQLAPI.Read("Sum(Saldo) FROM Konto WHERE KundeNr = " + valgteKunde.kundeNr);
+                    table.Clear();
+                    table.Columns.Clear();
+                    adapter.Fill(table);
+                    label18.Text = table.Rows[0][0].ToString();
+                    Show(label13, label14, label15, label16, label17, label18);
                     button8.Enabled = true;
                 }
             }
