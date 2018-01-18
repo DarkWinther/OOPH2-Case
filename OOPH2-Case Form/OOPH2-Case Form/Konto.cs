@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace OOPH2_Case_Form
 {
     class Konto
     {
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+
         private int _kontoNr;
         private string _typeNavn;
         private float _renteSats;
@@ -98,8 +101,12 @@ namespace OOPH2_Case_Form
         /// <param name="amount"></param>
         public void Indbetaling(int amount)
         {
-            // TODO: Get The current saldo of the konto.
-            SQLAPI.Update("Konto SET Saldo = " + amount + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            int newsaldo = 0;
+            adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
+
+            newsaldo = Convert.ToInt32(adapter) + amount;
+
+            SQLAPI.Update("Konto SET Saldo = " + newsaldo + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
             SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
         }
 
@@ -109,8 +116,12 @@ namespace OOPH2_Case_Form
         /// <param name="amount"></param>
         public void Udbetaling(int amount)
         {
-            // TODO: Get The current saldo of the konto.
-            SQLAPI.Update("Konto SET Saldo = " + amount + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            int newsaldo = 0;
+            adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
+
+            newsaldo = Convert.ToInt32(adapter) + amount;
+
+            SQLAPI.Update("Konto SET Saldo = " + newsaldo + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
             SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
         }
     }

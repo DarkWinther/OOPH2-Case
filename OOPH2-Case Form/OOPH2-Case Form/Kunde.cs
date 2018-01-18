@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace OOPH2_Case_Form
 {
     class Kunde
     {
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+
         private int _kundeNr;
         private string _fornavn;
         private string _efternavn;
@@ -64,7 +67,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Lists all the account data from the given kunde
+        /// Lists all the kunde data from the given kunde
         /// </summary>
         public void ListKundeData()
         {
