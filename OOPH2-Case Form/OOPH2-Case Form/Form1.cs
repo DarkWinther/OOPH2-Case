@@ -46,10 +46,13 @@ namespace OOPH2_Case_Form
                 case PanelState.OpretKunde:
                     break;
                 case PanelState.FjernKunde:
+                    SQLAPI.Delete("Konto WHERE KundeNr = " + textBox1.Text);
+                    SQLAPI.Delete("Kunde WHERE KundeNr = " + textBox1.Text);
                     break;
                 case PanelState.OpretKonto:
                     break;
                 case PanelState.FjernKonto:
+                    SQLAPI.Delete("Konto WHERE KontoNr = " + textBox1.Text);
                     break;
                 case PanelState.HævBeløb:
                     break;
