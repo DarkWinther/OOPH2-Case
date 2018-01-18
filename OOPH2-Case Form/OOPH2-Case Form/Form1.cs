@@ -167,16 +167,15 @@ namespace OOPH2_Case_Form
 
         private DateTime ConvertORD(string oprettelsesdato)
         {
-            int day, month, year, hour, minute, second;
             string[] temp = oprettelsesdato.Split();
-            day = Int32.Parse(temp[0].Split('/')[0]);
-            month = Int32.Parse(temp[0].Split('/')[1]);
-            year = Int32.Parse(temp[0].Split('/')[2]);
-            hour = Int32.Parse(temp[1].Split(':')[0]);
-            minute = Int32.Parse(temp[1].Split(':')[1]);
-            second = Int32.Parse(temp[1].Split(':')[2]);
-            DateTime ny = new DateTime(year, month, day, hour, minute, second);
-            return ny;
+            int day = Int32.Parse(temp[0].Split('/')[0]);
+            int month = Int32.Parse(temp[0].Split('/')[1]);
+            int year = Int32.Parse(temp[0].Split('/')[2]);
+            int hour = Int32.Parse(temp[1].Split(':')[0]);
+            int minute = Int32.Parse(temp[1].Split(':')[1]);
+            int second = Int32.Parse(temp[1].Split(':')[2]);
+            return new DateTime(year, month, day, hour, minute, second);
+            
         }
 
         private void textBox6_KeyUp(object sender, KeyEventArgs e)
