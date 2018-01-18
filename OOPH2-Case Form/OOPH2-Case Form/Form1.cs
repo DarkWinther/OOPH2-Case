@@ -14,7 +14,7 @@ namespace OOPH2_Case_Form
     public partial class Form1 : Form
     {
         private enum PanelState { Empty, OpretKunde, FjernKunde, OpretKonto, FjernKonto, HævBeløb, IndsætBeløb }
-        private SqlDataAdapter adapter = new SqlDataAdapter("SELECT CONCAT(Fornavn, ' ', Efternavn, ' | ', KundeNr) AS Navn FROM Kunde;", SQLAPI.connection);
+        private SqlDataAdapter adapter = new SqlDataAdapter();
         private DataTable table = new DataTable();
         private PanelState ps = PanelState.Empty;
 
@@ -25,9 +25,14 @@ namespace OOPH2_Case_Form
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            adapter = SQLAPI.Read("CONCAT(Fornavn, ' ', Efternavn, ' | ', KundeNr) AS Navn FROM Kunde;");
             adapter.Fill(table);
-            comboBox1.DataSource = table;
-            comboBox1.DisplayMember = "Navn";
+            AutoCompleteStringCollection strColl = new AutoCompleteStringCollection();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                strColl.Add(table.Rows[i][0].ToString());
+            }
+            textBox6.AutoCompleteCustomSource = strColl;
         }
 
         //Submit
@@ -138,20 +143,10 @@ namespace OOPH2_Case_Form
             
         }
 
-        //Søg i comboBox1
-        private void comboBox1_TextUpdate(object sender, EventArgs e)
-        {
-            table.Clear();
-            SQLAPI.Read("KundeNr, Fornavn, Efternavn FROM Kunde WHERE Fornavn LIKE '%" +
-                comboBox1.Text + "%' OR Efternavn LIKE '%" + comboBox1.Text + "%' OR KundeNr LIKE '" +
-                comboBox1.Text + "%';");
-            adapter.Fill(table);
-        }
-
         //Vælg al tekst i comboBox1
-        private void comboBox1_Enter(object sender, EventArgs e)
+        private void textBox6_Enter(object sender, EventArgs e)
         {
-            comboBox1.SelectAll();
+            textBox6.SelectAll();
         }
 
         private void HideAll()
@@ -167,6 +162,42 @@ namespace OOPH2_Case_Form
             foreach (var item in things)
             {
                 item.Visible = true;
+            }
+        }
+
+        private DateTime ConvertORD(string oprettelsesdato)
+        {
+            int day, month, year, hour, minute, second;
+            string[] temp = oprettelsesdato.Split();
+            year = Int32.Parse(temp[0].Split('-')[0]);
+            day = Int32.Parse(temp[0].Split('-')[1]);
+            month = Int32.Parse(temp[0].Split('-')[2]);
+            hour = Int32.Parse(temp[1].Split(':')[0]);
+            minute = Int32.Parse(temp[1].Split(':')[1]);
+            second = Int32.Parse(temp[1].Split(':')[2]);
+            DateTime ny = new DateTime(year, month, day, hour, minute, second);
+            return ny;
+        }
+
+        private void textBox6_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchVal = textBox6.Text.Split(':').Last();
+                adapter = SQLAPI.Read("KundeNr FROM Kunde WHERE KundeNr LIKE '%" + searchVal + "'");
+                adapter.Fill(table);
+                if (table.Rows.Count != 1)
+                {
+                    throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
+                }
+                else
+                {
+                    Kunde nyKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
+                        table.Rows[0]["Efternavn"].ToString());
+                    nyKunde.postNr = (int)table.Rows[0]["PostNr"];
+                    nyKunde.adresse = table.Rows[0]["Adresse"].ToString();
+                    nyKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
+                }
             }
         }
     }
