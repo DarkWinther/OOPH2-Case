@@ -88,7 +88,8 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKunde()
         {
-            SQLAPI.Insert("");
+            // TODO: Insert values.
+            SQLAPI.Insert("Kunde VALUES()");
         }
 
         /// <summary>
@@ -124,6 +125,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void FjernKunde()
         {
+            SQLAPI.Delete("Konto WHERE KundeNr = " + kundeNr);
             SQLAPI.Delete("Kunde WHERE KundeNr = " + kundeNr);
         }
     }
