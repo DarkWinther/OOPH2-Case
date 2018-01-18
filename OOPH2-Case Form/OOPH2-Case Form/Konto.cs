@@ -61,9 +61,9 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// List all transactions for the given konto
         /// </summary>
-        public void ListTransaktioner()
+        public SqlDataAdapter ListTransaktioner()
         {
-            SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + kontoNr);
+            return SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + kontoNr);
         }
 
         /// <summary>

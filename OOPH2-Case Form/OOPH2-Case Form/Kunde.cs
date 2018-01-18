@@ -70,9 +70,9 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// Lists all the kunde data from the given kunde
         /// </summary>
-        public void ListKundeData()
+        public SqlDataAdapter ListKundeData()
         {
-            SQLAPI.Read("* FROM Kunde WHERE KundeNr = " + kundeNr);
+            return SQLAPI.Read("* FROM Kunde WHERE KundeNr = " + kundeNr);
         }
 
         /// <summary>
