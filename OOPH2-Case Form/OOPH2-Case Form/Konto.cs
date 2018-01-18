@@ -53,9 +53,9 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// Lists all data for the given konto
         /// </summary>
-        public void ListKontoData()
+        public SqlDataAdapter ListKontoData()
         {
-            SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
+            return SQLAPI.Read("* FROM Konto WHERE KontoNr = " + kontoNr);
         }
 
         /// <summary>

@@ -78,9 +78,9 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// Lists all the kontier from the given kunde
         /// </summary>
-        public void KontiList()
+        public SqlDataAdapter KontiList()
         {
-            SQLAPI.Read("KontoNr FROM Konto WHERE KundeNr = " + kundeNr);
+            return SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
         }
 
         /// <summary>
