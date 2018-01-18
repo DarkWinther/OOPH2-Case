@@ -71,6 +71,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKonto()
         {
+            SQLAPI.Insert("");
         }
 
         /// <summary>

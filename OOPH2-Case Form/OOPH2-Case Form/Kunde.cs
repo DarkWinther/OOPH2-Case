@@ -87,6 +87,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKunde()
         {
+            SQLAPI.Insert("");
         }
 
         /// <summary>
@@ -94,6 +95,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpdaterKunde()
         {
+            SQLAPI.Update("");
         }
 
         /// <summary>
