@@ -33,6 +33,7 @@ namespace OOPH2_Case_Form
                 strColl.Add(table.Rows[i][0].ToString());
             }
             textBox6.AutoCompleteCustomSource = strColl;
+            Hide(label13, label14, label15, label16, label17);
         }
 
         //Submit
@@ -165,6 +166,14 @@ namespace OOPH2_Case_Form
             }
         }
 
+        private void Hide(params Control[] things)
+        {
+            foreach (var item in things)
+            {
+                item.Visible = false;
+            }
+        }
+
         private DateTime ConvertORD(string oprettelsesdato)
         {
             string[] temp = oprettelsesdato.Split();
@@ -180,26 +189,51 @@ namespace OOPH2_Case_Form
 
         private void textBox6_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                string searchVal = textBox6.Text.Split('|').Last();
-                searchVal = searchVal.Substring(1);
-                adapter = SQLAPI.Read("* FROM Kunde WHERE KundeNr LIKE '%" + searchVal + "'");
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (String.IsNullOrWhiteSpace(textBox6.Text))
+                        return;
+                    Kunde nyKunde;
+                    string searchVal = textBox6.Text.Split('|').Last();
+                    searchVal = searchVal.Substring(1);
+                    if (String.IsNullOrEmpty(searchVal))
+                    {
+                        int n;
+                        if (Int32.TryParse(textBox6.Text, out n))
+                            searchVal = textBox6.Text;
+                        else throw new FormatException("Kundenummeret kunne ikke læses");
+                    }
+                    adapter = SQLAPI.Read("* FROM Kunde WHERE KundeNr LIKE '" + searchVal + "'");
+                    table.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count != 1)
+                    {
+                        MessageBox.Show(table.Rows.Count.ToString());
+                        throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
+                    }
+                    else
+                    {
+                        nyKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
+                            table.Rows[0]["Efternavn"].ToString());
+                        nyKunde.postNr = (int)table.Rows[0]["PostNr"];
+                        nyKunde.adresse = table.Rows[0]["Adresse"].ToString();
+                        nyKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
+                    }
+                    label13.Text = nyKunde.kundeNr.ToString();
+                    label14.Text = nyKunde.fornavn + " " + nyKunde.efternavn;
+                    label15.Text = nyKunde.adresse;
+                    label16.Text = nyKunde.postNr.ToString();
+                    label17.Text = nyKunde.tlfNr.ToString();
+                    Show(label13, label14, label15, label16, label17);
+                }
+            }
+                catch (Exception exc)
+            {
                 table.Clear();
-                adapter.Fill(table);
-                if (table.Rows.Count != 1)
-                {
-                    MessageBox.Show(table.Rows.Count.ToString());
-                    throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
-                }
-                else
-                {
-                    Kunde nyKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
-                        table.Rows[0]["Efternavn"].ToString());
-                    nyKunde.postNr = (int)table.Rows[0]["PostNr"];
-                    nyKunde.adresse = table.Rows[0]["Adresse"].ToString();
-                    nyKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
-                }
+                textBox6.Clear();
+                MessageBox.Show("Error!\n\n" + exc.Message);
             }
         }
     }
