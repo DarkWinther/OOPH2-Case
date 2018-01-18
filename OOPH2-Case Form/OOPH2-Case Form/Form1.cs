@@ -17,6 +17,8 @@ namespace OOPH2_Case_Form
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private DataTable table = new DataTable();
         private PanelState ps = PanelState.Empty;
+        Kunde valgteKunde;
+        Konto valgteKonto;
 
         public Form1()
         {
@@ -85,7 +87,11 @@ namespace OOPH2_Case_Form
         //Vis konto
         private void button8_Click(object sender, EventArgs e)
         {
-
+            adapter = valgteKunde.KontiList();
+            table.Clear();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+            button13.Enabled = true;
         }
 
         //Opret konto
@@ -135,19 +141,64 @@ namespace OOPH2_Case_Form
         //Udskriv transaktioner
         private void button13_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //Update kundeinfo
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+            //adapter = SQLAPI.Read("* FROM Transaktion WHERE KontoNr = ")
         }
 
         //Vælg al tekst i comboBox1
         private void textBox6_Enter(object sender, EventArgs e)
         {
             textBox6.SelectAll();
+        }
+
+        private void textBox6_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (String.IsNullOrWhiteSpace(textBox6.Text))
+                        return;
+                    string searchVal = textBox6.Text.Split('|').Last();
+                    searchVal.Trim();
+                    if (String.IsNullOrEmpty(searchVal))
+                    {
+                        int n;
+                        if (Int32.TryParse(textBox6.Text, out n))
+                            searchVal = textBox6.Text;
+                        else throw new FormatException("Kundenummeret kunne ikke læses");
+                    }
+                    adapter = SQLAPI.Read("* FROM Kunde, PostNr WHERE Kunde.PostNr = PostNr.PostNr AND KundeNr LIKE '" + searchVal + "'");
+                    table.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count != 1)
+                    {
+                        throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
+                    }
+                    else
+                    {
+                        valgteKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
+                            table.Rows[0]["Efternavn"].ToString());
+                        valgteKunde.postNr = (int)table.Rows[0]["PostNr"];
+                        valgteKunde.adresse = table.Rows[0]["Adresse"].ToString();
+                        valgteKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
+                        if (!String.IsNullOrEmpty(table.Rows[0]["TlfNr"].ToString()))
+                            valgteKunde.tlfNr = Int32.Parse(table.Rows[0]["TlfNr"].ToString());
+                    }
+                    label13.Text = valgteKunde.kundeNr.ToString();
+                    label14.Text = valgteKunde.fornavn + " " + valgteKunde.efternavn;
+                    label15.Text = valgteKunde.adresse;
+                    label16.Text = valgteKunde.postNr + " " + table.Rows[0]["ByNavn"];
+                    label17.Text = valgteKunde.tlfNr == 0 ? "N/A" : valgteKunde.tlfNr.ToString();
+                    Show(label13, label14, label15, label16, label17);
+                    button8.Enabled = true;
+                }
+            }
+            catch (Exception exc)
+            {
+                table.Clear();
+                textBox6.Clear();
+                MessageBox.Show("Error!\n\n" + exc.Message);
+            }
         }
 
         private void HideAll()
@@ -185,56 +236,6 @@ namespace OOPH2_Case_Form
             int second = Int32.Parse(temp[1].Split(':')[2]);
             return new DateTime(year, month, day, hour, minute, second);
             
-        }
-
-        private void textBox6_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    if (String.IsNullOrWhiteSpace(textBox6.Text))
-                        return;
-                    Kunde nyKunde;
-                    string searchVal = textBox6.Text.Split('|').Last();
-                    searchVal = searchVal.Substring(1);
-                    if (String.IsNullOrEmpty(searchVal))
-                    {
-                        int n;
-                        if (Int32.TryParse(textBox6.Text, out n))
-                            searchVal = textBox6.Text;
-                        else throw new FormatException("Kundenummeret kunne ikke læses");
-                    }
-                    adapter = SQLAPI.Read("* FROM Kunde WHERE KundeNr LIKE '" + searchVal + "'");
-                    table.Clear();
-                    adapter.Fill(table);
-                    if (table.Rows.Count != 1)
-                    {
-                        MessageBox.Show(table.Rows.Count.ToString());
-                        throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
-                    }
-                    else
-                    {
-                        nyKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
-                            table.Rows[0]["Efternavn"].ToString());
-                        nyKunde.postNr = (int)table.Rows[0]["PostNr"];
-                        nyKunde.adresse = table.Rows[0]["Adresse"].ToString();
-                        nyKunde.oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString());
-                    }
-                    label13.Text = nyKunde.kundeNr.ToString();
-                    label14.Text = nyKunde.fornavn + " " + nyKunde.efternavn;
-                    label15.Text = nyKunde.adresse;
-                    label16.Text = nyKunde.postNr.ToString();
-                    label17.Text = nyKunde.tlfNr.ToString();
-                    Show(label13, label14, label15, label16, label17);
-                }
-            }
-                catch (Exception exc)
-            {
-                table.Clear();
-                textBox6.Clear();
-                MessageBox.Show("Error!\n\n" + exc.Message);
-            }
         }
     }
 }
