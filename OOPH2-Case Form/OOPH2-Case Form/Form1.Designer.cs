@@ -392,7 +392,7 @@
             this.Controls.Add(this.button5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bank termial (Employee Edition)";
+            this.Text = "Scammerbank (Employee Edition)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
