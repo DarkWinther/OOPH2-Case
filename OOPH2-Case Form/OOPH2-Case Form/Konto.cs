@@ -48,7 +48,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Lists all data for the given konto
         /// </summary>
         public void ListKontoData()
         {
@@ -56,7 +56,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// List all transactions for the given konto
         /// </summary>
         public void ListTransaktioner()
         {
@@ -64,14 +64,14 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Creates the given konto
         /// </summary>
         public void OpretKonto()
         {
         }
 
         /// <summary>
-        /// 
+        /// Removes the given konto
         /// </summary>
         public void FjernKonto()
         {
@@ -79,21 +79,21 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// ???
         /// </summary>
         public void RetRentesats()
         {
         }
 
         /// <summary>
-        /// 
+        /// ???
         /// </summary>
         public void UdregnRente()
         {
         }
 
         /// <summary>
-        /// 
+        /// Creates a transaction for a indbetaling.
         /// </summary>
         /// <param name="amount"></param>
         public void Indbetaling(int amount)
@@ -104,7 +104,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Creates a transaction for a udbetaling.
         /// </summary>
         /// <param name="amount"></param>
         public void Udbetaling(int amount)
