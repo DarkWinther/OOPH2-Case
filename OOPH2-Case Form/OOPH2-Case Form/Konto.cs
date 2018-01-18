@@ -53,9 +53,9 @@ namespace OOPH2_Case_Form
         /// <summary>
         /// Lists all data for the given konto
         /// </summary>
-        public void ListKontoData()
+        public SqlDataAdapter ListKontoData()
         {
-            SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
+            return SQLAPI.Read("* FROM Konto WHERE KontoNr = " + kontoNr);
         }
 
         /// <summary>
@@ -71,7 +71,8 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKonto()
         {
-            SQLAPI.Insert("");
+            // TODO: Insert values.
+            SQLAPI.Insert("Konto VALUES()");
         }
 
         /// <summary>
@@ -79,21 +80,16 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void FjernKonto()
         {
+            SQLAPI.Delete("Transaktion WHERE KontoNr = " + kontoNr);
             SQLAPI.Delete("Konto WHERE KontoNr = " + kontoNr);
         }
 
         /// <summary>
-        /// ???
+        /// Updates the rente.
         /// </summary>
-        public void RetRentesats()
+        public void RetRentesats(float newrente)
         {
-        }
-
-        /// <summary>
-        /// ???
-        /// </summary>
-        public void UdregnRente()
-        {
+            SQLAPI.Update("KontoType SET Rentesats = " + newrente + " WHERE TypeNavn = " + typeNavn);
         }
 
         /// <summary>
