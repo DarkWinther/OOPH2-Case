@@ -15,12 +15,20 @@ namespace OOPH2_Case_Form
         private double _saldo;
         private DateTime _oprettelsesdato;
 
+        /// <summary>
+        /// Creates all the properties for Konto
+        /// </summary>
+
         public int kontoNr { get { return _kontoNr; } set { _kontoNr = value; } }
         public string typeNavn { get { return _typeNavn; } set { _typeNavn = value; } }
         public float renteSats { get { return _renteSats; } set { _renteSats = value; } }
         public int kundeNr { get { return _kundeNr; } set { _kundeNr = value; } }
         public double saldo { get { return _saldo; } set { _saldo = value; } }
         public DateTime oprettelsesdato { get { return _oprettelsesdato; } set { _oprettelsesdato = value; } }
+
+        /// <summary>
+        /// Create all constructors for Konto
+        /// </summary>
 
         public Konto()
         {
@@ -39,44 +47,71 @@ namespace OOPH2_Case_Form
             this.saldo = saldo;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ListKontoData()
         {
-
+            SQLAPI.Read("* FROM Konto WHERE KundeNr = " + kundeNr);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ListTransaktioner()
         {
-
+            SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + kontoNr);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OpretKonto()
         {
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void FjernKonto()
         {
-
+            SQLAPI.Delete("Konto WHERE KontoNr = " + kontoNr);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void RetRentesats()
         {
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void UdregnRente()
         {
-
         }
 
-        public void Indbetaling()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount"></param>
+        public void Indbetaling(int amount)
         {
-
+            // TODO: Get The current saldo of the konto.
+            SQLAPI.Update("Konto SET Saldo = " + amount + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
         }
 
-        public void Udbetaling()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount"></param>
+        public void Udbetaling(int amount)
         {
-
+            // TODO: Get The current saldo of the konto.
+            SQLAPI.Update("Konto SET Saldo = " + amount + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
         }
     }
 }
