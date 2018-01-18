@@ -54,29 +54,42 @@ namespace OOPH2_Case_Form
             this.tlfNr = tlfNr;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void ListKundeData()
         {
             SQLAPI.Read("* FROM Kunde WHERE KundeNr = " + kundeNr);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void KontiList()
         {
             SQLAPI.Read("KontoNr FROM Konto WHERE KundeNr = " + kundeNr);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OpretKunde()
         {
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OpdaterKunde()
         {
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void FjernKunde()
         {
-
+            SQLAPI.Delete("Kunde WHERE KundeNr = " + kundeNr);
         }
     }
 }
