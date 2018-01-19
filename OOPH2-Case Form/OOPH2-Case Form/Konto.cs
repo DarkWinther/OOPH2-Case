@@ -38,12 +38,13 @@ namespace OOPH2_Case_Form
             oprettelsesdato = DateTime.Now;
         }
 
-        public Konto(int kontoNr) : this()
+        public Konto(int kontoNr, int kundeNr) : this()
         {
             this.kontoNr = kontoNr;
+            this.kundeNr = kundeNr;
         }
 
-        public Konto(int kontoNr, string typeNavn, float renteSats, double saldo) : this(kontoNr)
+        public Konto(int kontoNr, int kundeNr, string typeNavn, float renteSats, double saldo) : this(kontoNr, kundeNr)
         {
             this.typeNavn = typeNavn;
             this.renteSats = renteSats;
