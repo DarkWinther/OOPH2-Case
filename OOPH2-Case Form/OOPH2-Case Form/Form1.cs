@@ -327,6 +327,21 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
+        /// Vis kundeoversigt button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Kundeoversigt_btn_Click(object sender, EventArgs e)
+        {
+            adapter = SQLAPI.Read("* FROM Kunde");
+            table.Clear();
+            table.Columns.Clear();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+            dataGridView1.AutoResizeColumns();
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="txt"></param>

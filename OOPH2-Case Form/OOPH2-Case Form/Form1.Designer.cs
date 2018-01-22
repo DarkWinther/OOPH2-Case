@@ -600,6 +600,7 @@
             this.Kundeoversigt_btn.TabIndex = 23;
             this.Kundeoversigt_btn.Text = "Vis Kundeoversigt";
             this.Kundeoversigt_btn.UseVisualStyleBackColor = true;
+            this.Kundeoversigt_btn.Click += new System.EventHandler(this.Kundeoversigt_btn_Click);
             // 
             // Form1
             // 
