@@ -112,15 +112,15 @@ namespace OOPH2_Case_Form
         /// Creates a transaction for a udbetaling.
         /// </summary>
         /// <param name="amount"></param>
-        public void Udbetaling(int amount)
+        public void Udbetaling(double amount)
         {
-            int newsaldo = 0;
+            double newSaldo = 0;
+            System.Data.DataTable table = new System.Data.DataTable();
             adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
-
-            newsaldo = Convert.ToInt32(adapter) + amount;
-
-            SQLAPI.Update("Konto SET Saldo = " + newsaldo + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
-            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
+            adapter.Fill(table);
+            newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) - amount;
+            SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + (amount * -1) + ", CAST('" + DateTime.Now + "' AS SMALLDATETIME)," + kontoNr + ")"); // Create a transaction
         }
     }
 }
