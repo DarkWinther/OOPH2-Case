@@ -70,6 +70,7 @@ namespace OOPH2_Case_Form
                         tlfNr = tlf
                     };
                     nyKunde.OpretKunde();
+                    Form1_Load(sender, e);
                     break;
                 case PanelState.OpretKonto:
                     int kunde;
@@ -292,7 +293,7 @@ namespace OOPH2_Case_Form
                     table.Clear();
                     table.Columns.Clear();
                     adapter.Fill(table);
-                    SamletBeløb_label.Text = table.Rows[0][0].ToString();
+                    SamletBeløb_label.Text = String.IsNullOrWhiteSpace(SamletBeløb_label.Text) ? "0" : table.Rows[0][0].ToString();
                     Show(label13, label14, label15, label16, label17, SamletBeløb_label);
                     VisKonto_btn.Enabled = true;
                     FjernKunde_btn.Enabled = true;
