@@ -70,7 +70,8 @@ namespace OOPH2_Case_Form
                 case PanelState.HævBeløb:
                     try
                     {
-                        valgteKonto.Udbetaling(Convert.ToInt32(textBox2.Text));
+                        valgteKonto.Udbetaling(Convert.ToDouble(textBox1.Text));
+                        SamletBeløb_label.Text = (Double.Parse(SamletBeløb_label.Text) - Double.Parse(textBox1.Text)).ToString();
                     }
                     catch (Exception exc)
                     {
@@ -80,7 +81,8 @@ namespace OOPH2_Case_Form
                 case PanelState.IndsætBeløb:
                     try
                     {
-                        valgteKonto.Indbetaling(Convert.ToInt32(textBox2.Text));
+                        valgteKonto.Indbetaling(Convert.ToDouble(textBox1.Text));
+                        SamletBeløb_label.Text = (Double.Parse(SamletBeløb_label.Text) + Double.Parse(textBox1.Text)).ToString();
                     }
                     catch (Exception exc)
                     {
@@ -185,10 +187,9 @@ namespace OOPH2_Case_Form
         private void button11_Click(object sender, EventArgs e)
         {
             HideAll();
-            Show(label1, label2, textBox1, textBox2, Submit_btn);
+            Show(label1, textBox1, Submit_btn);
             Submit_btn.Text = "Hæv beløb";
-            label1.Text = "KontoNr";
-            label2.Text = "Beløb";
+            label1.Text = "Beløb";
             ps = PanelState.HævBeløb;
         }
 
@@ -200,10 +201,9 @@ namespace OOPH2_Case_Form
         private void button12_Click(object sender, EventArgs e)
         {
             HideAll();
-            Show(label1, label2, textBox1, textBox2, Submit_btn);
+            Show(label1, textBox1, Submit_btn);
             Submit_btn.Text = "Indsæt beløb";
-            label1.Text = "KontoNr";
-            label2.Text = "Beløb";
+            label1.Text = "Beløb";
             ps = PanelState.IndsætBeløb;
         }
 
@@ -218,7 +218,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Vælg al tekst i comboBox1
+        /// Vælg alt tekst i comboBox1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -227,6 +227,11 @@ namespace OOPH2_Case_Form
             SøgKunde_text.SelectAll();
         }
 
+        /// <summary>
+        /// Vælg en kunde fra databasen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox6_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -276,6 +281,7 @@ namespace OOPH2_Case_Form
                     SamletBeløb_label.Text = table.Rows[0][0].ToString();
                     Show(label13, label14, label15, label16, label17, SamletBeløb_label);
                     VisKonto_btn.Enabled = true;
+                    FjernKunde_btn.Enabled = true;
                 }
             }
             catch (Exception exc)
@@ -286,6 +292,11 @@ namespace OOPH2_Case_Form
             }
         }
 
+        /// <summary>
+        /// Vælg en konto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SøgKonto_text_KeyUp(object sender, KeyEventArgs e)
         {
             // TODO: Create the søg konto method.
@@ -309,13 +320,14 @@ namespace OOPH2_Case_Form
                     {
                         valgteKonto = new Konto((int)table.Rows[0]["KontoNr"], (int)table.Rows[0]["KundeNr"]);
                     }
-
                     label18.Text = valgteKonto.kontoNr.ToString();
                     label19.Text = valgteKonto.kundeNr.ToString();
                     table.Clear();
                     table.Columns.Clear();
                     Show(label18, label19);
-
+                    Indsæt_btn.Enabled = true;
+                    Hæv_btn.Enabled = true;
+                    FjernKonto_btn.Enabled = true;
                 }
             }
             catch (Exception exc)
