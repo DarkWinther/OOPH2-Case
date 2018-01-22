@@ -376,7 +376,16 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void comboBox2_Enter(object sender, EventArgs e)
         {
-            SQLAPI.Read("TypeNavn FROM KontoType");
+            adapter = SQLAPI.Read("TypeNavn FROM KontoType");
+            table.Clear();
+            table.Columns.Clear();
+            adapter.Fill(table);
+            List<string> typeliste = new List<string>();
+            foreach (DataRow row in table.Rows)
+            {
+                typeliste.Add(row[0].ToString());
+            }
+            comboBox2.DataSource = typeliste;
         }
 
         /// <summary>
