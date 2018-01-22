@@ -100,6 +100,7 @@
             // 
             // FjernKunde_btn
             // 
+            this.FjernKunde_btn.Enabled = false;
             this.FjernKunde_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FjernKunde_btn.Location = new System.Drawing.Point(320, 178);
             this.FjernKunde_btn.Name = "FjernKunde_btn";
@@ -134,6 +135,7 @@
             // 
             // FjernKonto_btn
             // 
+            this.FjernKonto_btn.Enabled = false;
             this.FjernKonto_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FjernKonto_btn.Location = new System.Drawing.Point(320, 347);
             this.FjernKonto_btn.Name = "FjernKonto_btn";
@@ -145,6 +147,7 @@
             // 
             // Hæv_btn
             // 
+            this.Hæv_btn.Enabled = false;
             this.Hæv_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hæv_btn.Location = new System.Drawing.Point(530, 347);
             this.Hæv_btn.Name = "Hæv_btn";
@@ -156,6 +159,7 @@
             // 
             // Indsæt_btn
             // 
+            this.Indsæt_btn.Enabled = false;
             this.Indsæt_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Indsæt_btn.Location = new System.Drawing.Point(413, 347);
             this.Indsæt_btn.Name = "Indsæt_btn";

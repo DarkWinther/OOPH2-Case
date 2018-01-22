@@ -97,15 +97,16 @@ namespace OOPH2_Case_Form
         /// Creates a transaction for a indbetaling.
         /// </summary>
         /// <param name="amount"></param>
-        public void Indbetaling(int amount)
+        public void Indbetaling(double amount)
         {
-            int newsaldo = 0;
+            double newSaldo = 0;
+            System.Data.DataTable table = new System.Data.DataTable();
             adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
-
-            newsaldo = Convert.ToInt32(adapter) + amount;
-
-            SQLAPI.Update("Konto SET Saldo = " + newsaldo + "WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
-            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + "," + DateTime.Now + "," + kontoNr + ")"); // Create a transaction
+            adapter.Fill(table);
+            newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) + amount;
+            SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount +
+                ", CAST('" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
         }
 
         /// <summary>
@@ -119,8 +120,16 @@ namespace OOPH2_Case_Form
             adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
             adapter.Fill(table);
             newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) - amount;
-            SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
-            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + (amount * -1) + ", CAST('" + DateTime.Now + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
+            if (newSaldo < 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Error!\n\nDer er ikke penge nok på kontoen");
+            }
+            else
+            {
+                SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
+                SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + (amount * -1) +
+                    ", CAST('" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
+            }
         }
     }
 }
