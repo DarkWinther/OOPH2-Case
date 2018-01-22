@@ -73,7 +73,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKonto()
         {
-            SQLAPI.Insert("Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(" + typeNr + ", " + kundeNr + ", " + saldo + ", " + oprettelsesdato + ")");
+            SQLAPI.Insert("Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(" + typeNr + ", " + kundeNr + ", " + saldo + ", CAST('" + oprettelsesdato.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME))");
             MessageBox.Show("Kunden er nu oprettet!");
         }
 
