@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace OOPH2_Case_Form
 {
@@ -12,7 +13,7 @@ namespace OOPH2_Case_Form
         private SqlDataAdapter adapter = new SqlDataAdapter();
 
         private int _kontoNr;
-        private string _typeNavn;
+        private int _typeNr;
         private float _renteSats;
         private int _kundeNr;
         private double _saldo;
@@ -23,7 +24,7 @@ namespace OOPH2_Case_Form
         /// </summary>
 
         public int kontoNr { get { return _kontoNr; } set { _kontoNr = value; } }
-        public string typeNavn { get { return _typeNavn; } set { _typeNavn = value; } }
+        public int typeNr { get { return _typeNr; } set { _typeNr = value; } }
         public float renteSats { get { return _renteSats; } set { _renteSats = value; } }
         public int kundeNr { get { return _kundeNr; } set { _kundeNr = value; } }
         public double saldo { get { return _saldo; } set { _saldo = value; } }
@@ -44,9 +45,9 @@ namespace OOPH2_Case_Form
             this.kundeNr = kundeNr;
         }
 
-        public Konto(int kontoNr, int kundeNr, string typeNavn, float renteSats, double saldo) : this(kontoNr, kundeNr)
+        public Konto(int kontoNr, int kundeNr, int typeNr, float renteSats, double saldo) : this(kontoNr, kundeNr)
         {
-            this.typeNavn = typeNavn;
+            this.typeNr = typeNr;
             this.renteSats = renteSats;
             this.saldo = saldo;
         }
@@ -72,8 +73,8 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKonto()
         {
-            // TODO: Insert values.
-            SQLAPI.Insert("Konto VALUES()");
+            SQLAPI.Insert("Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(" + typeNr + ", " + kundeNr + ", " + saldo + ", " + oprettelsesdato + ")");
+            MessageBox.Show("Kunden er nu oprettet!");
         }
 
         /// <summary>
@@ -90,7 +91,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void RetRentesats(float newrente)
         {
-            SQLAPI.Update("KontoType SET Rentesats = " + newrente + " WHERE TypeNavn = " + typeNavn);
+            SQLAPI.Update("KontoType SET Rentesats = " + newrente + " WHERE TypeNr = " + typeNr);
         }
 
         /// <summary>
