@@ -259,11 +259,11 @@ namespace OOPH2_Case_Form
                     {
                         valgteKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
                             table.Rows[0]["Efternavn"].ToString())
-                        {
+                       {
                             postNr = (int)table.Rows[0]["PostNr"],
                             adresse = table.Rows[0]["Adresse"].ToString(),
                             byNavn = table.Rows[0]["Bynavn"].ToString(),
-                            oprettelsesdato = ConvertORD(table.Rows[0]["Oprettelsesdato"].ToString())
+                            oprettelsesdato = DateTime.Parse(table.Rows[0]["Oprettelsesdato"].ToString())
                         };
                         if (!String.IsNullOrEmpty(table.Rows[0]["TlfNr"].ToString()))
                             valgteKunde.tlfNr = Int32.Parse(table.Rows[0]["TlfNr"].ToString());
@@ -375,26 +375,6 @@ namespace OOPH2_Case_Form
             {
                 item.Visible = false;
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="oprettelsesdato"></param>
-        /// <returns></returns>
-        private DateTime ConvertORD(string oprettelsesdato)
-        {
-            return DateTime.Parse(oprettelsesdato);
-            /*
-            string[] temp = oprettelsesdato.Split();
-            int day = Int32.Parse(temp[0].Split('/')[0]);
-            int month = Int32.Parse(temp[0].Split('/')[1]);
-            int year = Int32.Parse(temp[0].Split('/')[2]);
-            int hour = Int32.Parse(temp[1].Split(':')[0]);
-            int minute = Int32.Parse(temp[1].Split(':')[1]);
-            int second = Int32.Parse(temp[1].Split(':')[2]);
-            return new DateTime(year, month, day, hour, minute, second);
-            */
         }
     }
 }

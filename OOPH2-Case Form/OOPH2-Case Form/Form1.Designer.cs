@@ -69,11 +69,11 @@
             this.SøgKonto_text = new System.Windows.Forms.TextBox();
             this.SøgKonto_label = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.Kundeoversigt_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -137,7 +137,7 @@
             this.FjernKonto_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FjernKonto_btn.Location = new System.Drawing.Point(320, 347);
             this.FjernKonto_btn.Name = "FjernKonto_btn";
-            this.FjernKonto_btn.Size = new System.Drawing.Size(96, 32);
+            this.FjernKonto_btn.Size = new System.Drawing.Size(88, 32);
             this.FjernKonto_btn.TabIndex = 3;
             this.FjernKonto_btn.Text = "Fjern konto";
             this.FjernKonto_btn.UseVisualStyleBackColor = true;
@@ -146,9 +146,9 @@
             // Hæv_btn
             // 
             this.Hæv_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hæv_btn.Location = new System.Drawing.Point(524, 347);
+            this.Hæv_btn.Location = new System.Drawing.Point(530, 347);
             this.Hæv_btn.Name = "Hæv_btn";
-            this.Hæv_btn.Size = new System.Drawing.Size(96, 32);
+            this.Hæv_btn.Size = new System.Drawing.Size(90, 32);
             this.Hæv_btn.TabIndex = 4;
             this.Hæv_btn.Text = "Hæv beløb";
             this.Hæv_btn.UseVisualStyleBackColor = true;
@@ -157,9 +157,9 @@
             // Indsæt_btn
             // 
             this.Indsæt_btn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Indsæt_btn.Location = new System.Drawing.Point(422, 347);
+            this.Indsæt_btn.Location = new System.Drawing.Point(413, 347);
             this.Indsæt_btn.Name = "Indsæt_btn";
-            this.Indsæt_btn.Size = new System.Drawing.Size(96, 32);
+            this.Indsæt_btn.Size = new System.Drawing.Size(111, 32);
             this.Indsæt_btn.TabIndex = 5;
             this.Indsæt_btn.Text = "Indsæt beløb";
             this.Indsæt_btn.UseVisualStyleBackColor = true;
@@ -540,15 +540,15 @@
             this.splitContainer2.SplitterDistance = 80;
             this.splitContainer2.TabIndex = 21;
             // 
-            // label6
+            // label20
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(316, 281);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 19);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Valgte konto information:";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(3, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 19);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "KundeNr:";
             // 
             // label12
             // 
@@ -560,16 +560,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "KontoNr:";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(12, 3);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 19);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "label18";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -580,15 +570,25 @@
             this.label19.TabIndex = 1;
             this.label19.Text = "label19";
             // 
-            // label20
+            // label18
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 21);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(66, 19);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "KundeNr:";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(12, 3);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(53, 19);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "label18";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(316, 281);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(181, 19);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Valgte konto information:";
             // 
             // Kundeoversigt_btn
             // 
