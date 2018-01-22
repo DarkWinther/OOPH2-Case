@@ -128,11 +128,18 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
-            HideAll();
+            /*HideAll();
             Show(label1, textBox1, Submit_btn);
             label1.Text = "KundeNr";
             Submit_btn.Text = "Fjern Kunde";
-            ps = PanelState.FjernKunde;
+            ps = PanelState.FjernKunde;*/
+            if (valgteKunde == null)
+            {
+                MessageBox.Show("Error!\n\nDu har ikke valgt en kunde!");
+                return;
+            }
+            valgteKunde.FjernKunde();
+            MessageBox.Show("Den valgte kunde blev fjernet!");
         }
 
         /// <summary>
@@ -174,11 +181,18 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button10_Click(object sender, EventArgs e)
         {
-            HideAll();
+            /*HideAll();
             Show(label1, textBox1, Submit_btn);
             Submit_btn.Text = "Fjern Konto";
             label1.Text = "KontoNr";
-            ps = PanelState.FjernKonto;
+            ps = PanelState.FjernKonto;*/
+            if (valgteKonto == null)
+            {
+                MessageBox.Show("Error!\n\nDu har ikke valgt en konto!");
+                return;
+            }
+            valgteKonto.FjernKonto();
+            MessageBox.Show("Den valgte konto blev fjernet!");
         }
 
         /// <summary>
