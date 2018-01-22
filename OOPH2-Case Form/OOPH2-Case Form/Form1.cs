@@ -71,6 +71,7 @@ namespace OOPH2_Case_Form
                     };
                     nyKunde.OpretKunde();
                     Form1_Load(sender, e);
+                    SamletBeløb_label.Visible = true;
                     break;
                 case PanelState.OpretKonto:
                     int kunde;
@@ -159,7 +160,6 @@ namespace OOPH2_Case_Form
             adapter.Fill(table);
             dataGridView1.DataSource = table;
             dataGridView1.AutoResizeColumns();
-            UdskrivTrans_btn.Enabled = true;
         }
 
         /// <summary>
@@ -229,7 +229,11 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button13_Click(object sender, EventArgs e)
         {
-            //adapter = SQLAPI.Read("* FROM Transaktion WHERE KontoNr = ")
+            adapter = SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + valgteKonto.kontoNr);
+            table.Clear();
+            table.Columns.Clear();
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
         }
 
         /// <summary>
@@ -273,16 +277,16 @@ namespace OOPH2_Case_Form
                     }
                     else
                     {
-                        valgteKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString(),
-                            table.Rows[0]["Efternavn"].ToString())
+                        valgteKunde = new Kunde((int)table.Rows[0]["KundeNr"], table.Rows[0]["Fornavn"].ToString().Trim(),
+                            table.Rows[0]["Efternavn"].ToString().Trim())
                        {
                             postNr = (int)table.Rows[0]["PostNr"],
-                            adresse = table.Rows[0]["Adresse"].ToString(),
-                            byNavn = table.Rows[0]["Bynavn"].ToString(),
+                            adresse = table.Rows[0]["Adresse"].ToString().Trim(),
+                            byNavn = table.Rows[0]["Bynavn"].ToString().Trim(),
                             oprettelsesdato = DateTime.Parse(table.Rows[0]["Oprettelsesdato"].ToString())
                         };
                         if (!String.IsNullOrEmpty(table.Rows[0]["TlfNr"].ToString()))
-                            valgteKunde.tlfNr = Int32.Parse(table.Rows[0]["TlfNr"].ToString());
+                            valgteKunde.tlfNr = Int32.Parse(table.Rows[0]["TlfNr"].ToString().Trim());
                     }
                     label13.Text = valgteKunde.kundeNr.ToString();
                     label14.Text = valgteKunde.fornavn + " " + valgteKunde.efternavn;
@@ -293,7 +297,7 @@ namespace OOPH2_Case_Form
                     table.Clear();
                     table.Columns.Clear();
                     adapter.Fill(table);
-                    SamletBeløb_label.Text = String.IsNullOrWhiteSpace(SamletBeløb_label.Text) ? "0" : table.Rows[0][0].ToString();
+                    SamletBeløb_label.Text = String.IsNullOrWhiteSpace(table.Rows[0][0].ToString()) ? "0" : table.Rows[0][0].ToString();
                     Show(label13, label14, label15, label16, label17, SamletBeløb_label);
                     VisKonto_btn.Enabled = true;
                     FjernKunde_btn.Enabled = true;
@@ -345,6 +349,7 @@ namespace OOPH2_Case_Form
                     Indsæt_btn.Enabled = true;
                     Hæv_btn.Enabled = true;
                     FjernKonto_btn.Enabled = true;
+                    UdskrivTrans_btn.Enabled = true;
                 }
             }
             catch (Exception exc)
@@ -387,6 +392,8 @@ namespace OOPH2_Case_Form
                 typeliste.Add(row[0].ToString());
             }
             comboBox2.DataSource = typeliste;
+            table.Clear();
+            table.Columns.Clear();
         }
 
         /// <summary>
