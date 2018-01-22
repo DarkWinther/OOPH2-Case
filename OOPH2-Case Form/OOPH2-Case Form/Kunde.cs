@@ -41,7 +41,7 @@ namespace OOPH2_Case_Form
 
         public Kunde()
         {
-            oprettelsesdato = DateTime.Now;
+            oprettelsesdato = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
         }
 
         public Kunde(int kundeNr) : this()
@@ -91,8 +91,8 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKunde()
         {
-            // TODO: Insert values.
-            SQLAPI.Insert("Kunde VALUES()");
+            SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, TlfNr, OprettelsesDato) VALUES(" + fornavn + ", " + efternavn + ", " + postNr + ", " + adresse + ", " + tlfNr + ", " + oprettelsesdato + ")");
+            MessageBox.Show("Kunden er nu oprettet!");
         }
 
         /// <summary>
