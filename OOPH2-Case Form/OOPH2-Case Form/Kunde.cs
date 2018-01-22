@@ -91,7 +91,7 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKunde()
         {
-            SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, TlfNr, OprettelsesDato) VALUES(" + fornavn + ", " + efternavn + ", " + postNr + ", " + adresse + ", " + tlfNr + ", " + oprettelsesdato + ")");
+            SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, TlfNr, OprettelsesDato) VALUES('" + fornavn + "', '" + efternavn + "', " + postNr + ", '" + adresse + "', " + tlfNr + ", " + oprettelsesdato + ")");
             MessageBox.Show("Kunden er nu oprettet!");
         }
 
