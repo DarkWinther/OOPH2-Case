@@ -402,7 +402,7 @@
             // 
             this.SøgKunde_label.AutoSize = true;
             this.SøgKunde_label.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SøgKunde_label.Location = new System.Drawing.Point(316, 4);
+            this.SøgKunde_label.Location = new System.Drawing.Point(316, 6);
             this.SøgKunde_label.Name = "SøgKunde_label";
             this.SøgKunde_label.Size = new System.Drawing.Size(114, 19);
             this.SøgKunde_label.TabIndex = 15;
@@ -506,6 +506,7 @@
             // 
             // SøgKonto_text
             // 
+            this.SøgKonto_text.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SøgKonto_text.Location = new System.Drawing.Point(320, 250);
             this.SøgKonto_text.Name = "SøgKonto_text";
             this.SøgKonto_text.Size = new System.Drawing.Size(300, 25);
@@ -516,7 +517,7 @@
             // 
             this.SøgKonto_label.AutoSize = true;
             this.SøgKonto_label.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SøgKonto_label.Location = new System.Drawing.Point(316, 228);
+            this.SøgKonto_label.Location = new System.Drawing.Point(316, 230);
             this.SøgKonto_label.Name = "SøgKonto_label";
             this.SøgKonto_label.Size = new System.Drawing.Size(112, 19);
             this.SøgKonto_label.TabIndex = 20;
@@ -534,6 +535,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer2.Panel2.Controls.Add(this.label19);
             this.splitContainer2.Panel2.Controls.Add(this.label18);
             this.splitContainer2.Size = new System.Drawing.Size(300, 44);
