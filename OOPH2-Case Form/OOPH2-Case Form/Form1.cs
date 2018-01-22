@@ -13,7 +13,7 @@ namespace OOPH2_Case_Form
 {
     public partial class Form1 : Form
     {
-        private enum PanelState { Empty, OpretKunde, FjernKunde, OpretKonto, FjernKonto, HævBeløb, IndsætBeløb }
+        private enum PanelState { Empty, OpretKunde, OpretKonto, HævBeløb, IndsætBeløb }
         private SqlDataAdapter adapter = new SqlDataAdapter();
         private DataTable table = new DataTable();
         private PanelState ps = PanelState.Empty;
@@ -60,20 +60,12 @@ namespace OOPH2_Case_Form
                 case PanelState.OpretKunde:
                     // TODO: Create the object
                     nyKunde = new Kunde();
-
                     nyKunde.OpretKunde();
-                    break;
-                case PanelState.FjernKunde:
-                    valgteKunde.FjernKunde();
                     break;
                 case PanelState.OpretKonto:
                     // TODO: Create the object
                     nyKonto = new Konto();
-                    
                     nyKonto.OpretKonto();
-                    break;
-                case PanelState.FjernKonto:
-                    valgteKonto.FjernKonto();
                     break;
                 case PanelState.HævBeløb:
                     try
