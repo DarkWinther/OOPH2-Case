@@ -210,6 +210,7 @@
             this.comboBox2.Size = new System.Drawing.Size(156, 25);
             this.comboBox2.TabIndex = 2;
             this.comboBox2.Visible = false;
+            this.comboBox2.Enter += new System.EventHandler(this.comboBox2_Enter);
             // 
             // label5
             // 

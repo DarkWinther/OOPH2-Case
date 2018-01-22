@@ -72,8 +72,13 @@ namespace OOPH2_Case_Form
                     nyKunde.OpretKunde();
                     break;
                 case PanelState.OpretKonto:
-                    // TODO: Create the object
-                    nyKonto = new Konto();
+                    int kunde;
+                    Int32.TryParse(textBox1.Text, out kunde);
+                    nyKonto = new Konto()
+                    {
+                        typeNr = comboBox2.SelectedIndex + 1,
+                        kundeNr = kunde
+                    };
                     nyKonto.OpretKonto();
                     break;
                 case PanelState.HævBeløb:
@@ -362,6 +367,16 @@ namespace OOPH2_Case_Form
             adapter.Fill(table);
             dataGridView1.DataSource = table;
             dataGridView1.AutoResizeColumns();
+        }
+
+        /// <summary>
+        /// Sætter værdierne i dropdown menuen for kontotyper når man skal skabe en konto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox2_Enter(object sender, EventArgs e)
+        {
+            SQLAPI.Read("TypeNavn FROM KontoType");
         }
 
         /// <summary>
