@@ -120,7 +120,7 @@ namespace OOPH2_Case_Form
             adapter.Fill(table);
             newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) - amount;
             SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
-            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + (amount * -1) + ", CAST('" + DateTime.Now + "' AS SMALLDATETIME)," + kontoNr + ")"); // Create a transaction
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + (amount * -1) + ", CAST('" + DateTime.Now + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
         }
     }
 }
