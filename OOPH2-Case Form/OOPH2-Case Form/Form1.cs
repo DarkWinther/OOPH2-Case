@@ -58,8 +58,17 @@ namespace OOPH2_Case_Form
             switch (ps)
             {
                 case PanelState.OpretKunde:
-                    // TODO: Create the object
-                    nyKunde = new Kunde();
+                    int post, tlf;
+                    Int32.TryParse(textBox4.Text, out post);
+                    Int32.TryParse(textBox5.Text, out tlf);
+                    nyKunde = new Kunde()
+                    {
+                        fornavn = textBox1.Text,
+                        efternavn = textBox2.Text,
+                        adresse = textBox3.Text,
+                        postNr = post,
+                        tlfNr = tlf
+                    };
                     nyKunde.OpretKunde();
                     break;
                 case PanelState.OpretKonto:
@@ -282,6 +291,8 @@ namespace OOPH2_Case_Form
                     Show(label13, label14, label15, label16, label17, SamletBeløb_label);
                     VisKonto_btn.Enabled = true;
                     FjernKunde_btn.Enabled = true;
+                    table.Clear();
+                    table.Columns.Clear();
                 }
             }
             catch (Exception exc)

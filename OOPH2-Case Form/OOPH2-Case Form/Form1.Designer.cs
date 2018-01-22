@@ -208,7 +208,7 @@
             this.comboBox2.Location = new System.Drawing.Point(5, 171);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(156, 25);
-            this.comboBox2.TabIndex = 14;
+            this.comboBox2.TabIndex = 2;
             this.comboBox2.Visible = false;
             // 
             // label5
@@ -272,7 +272,7 @@
             this.Submit_btn.Location = new System.Drawing.Point(113, 292);
             this.Submit_btn.Name = "Submit_btn";
             this.Submit_btn.Size = new System.Drawing.Size(156, 32);
-            this.Submit_btn.TabIndex = 10;
+            this.Submit_btn.TabIndex = 6;
             this.Submit_btn.Text = "Submit";
             this.Submit_btn.UseVisualStyleBackColor = true;
             this.Submit_btn.Visible = false;
@@ -283,7 +283,7 @@
             this.textBox5.Location = new System.Drawing.Point(113, 142);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(156, 25);
-            this.textBox5.TabIndex = 8;
+            this.textBox5.TabIndex = 5;
             this.textBox5.Visible = false;
             // 
             // textBox4
@@ -291,7 +291,7 @@
             this.textBox4.Location = new System.Drawing.Point(113, 113);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(156, 25);
-            this.textBox4.TabIndex = 7;
+            this.textBox4.TabIndex = 4;
             this.textBox4.Visible = false;
             // 
             // textBox3
@@ -299,7 +299,7 @@
             this.textBox3.Location = new System.Drawing.Point(113, 83);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(156, 25);
-            this.textBox3.TabIndex = 9;
+            this.textBox3.TabIndex = 3;
             this.textBox3.Visible = false;
             // 
             // textBox2
@@ -307,7 +307,7 @@
             this.textBox2.Location = new System.Drawing.Point(113, 53);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 25);
-            this.textBox2.TabIndex = 6;
+            this.textBox2.TabIndex = 1;
             this.textBox2.Visible = false;
             // 
             // textBox1
@@ -315,7 +315,7 @@
             this.textBox1.Location = new System.Drawing.Point(113, 22);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 25);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 0;
             this.textBox1.Visible = false;
             // 
             // dataGridView1
