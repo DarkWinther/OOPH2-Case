@@ -502,9 +502,9 @@
             this.SamletBeløb_label.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SamletBeløb_label.Location = new System.Drawing.Point(480, 408);
             this.SamletBeløb_label.Name = "SamletBeløb_label";
-            this.SamletBeløb_label.Size = new System.Drawing.Size(53, 19);
+            this.SamletBeløb_label.Size = new System.Drawing.Size(17, 19);
             this.SamletBeløb_label.TabIndex = 17;
-            this.SamletBeløb_label.Text = "label18";
+            this.SamletBeløb_label.Text = "0";
             // 
             // ValgteKunde_label
             // 

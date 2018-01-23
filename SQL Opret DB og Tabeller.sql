@@ -54,7 +54,7 @@ GO
 
 CREATE TABLE Transaktion (
 	TransaktionsNr BIGINT PRIMARY KEY IDENTITY(1,1),
-	Beløb MONEY NOT NULL,
+	Beløb MONEY NOT NULL CHECK (Beløb <> 0),
 	Dato DATETIME NOT NULL,
 	KontoNr INT FOREIGN KEY REFERENCES Konto (KontoNr)
 );
