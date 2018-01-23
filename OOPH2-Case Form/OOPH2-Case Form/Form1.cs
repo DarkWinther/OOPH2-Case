@@ -19,7 +19,7 @@ namespace OOPH2_Case_Form
         Konto nyKonto;
 
         /// <summary>
-        /// 
+        /// Initialize all components
         /// </summary>
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Do this when the form loads
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -415,7 +415,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Clear panels method
         /// </summary>
         /// <param name="txt"></param>
         private void Clear(params TextBox[] txt)
@@ -427,7 +427,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Hideall method used to hide things we dont want the user to see
         /// </summary>
         private void HideAll()
         {
@@ -438,7 +438,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Show method used to unhide things so the user can see them
         /// </summary>
         /// <param name="things"></param>
         private void Show(params Control[] things)
@@ -450,7 +450,7 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// 
+        /// Hide method used to hide things we dont want the user to see
         /// </summary>
         /// <param name="things"></param>
         private void Hide(params Control[] things)
