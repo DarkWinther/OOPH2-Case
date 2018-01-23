@@ -51,9 +51,26 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(textBox1.Text))
+                return;
             switch (ps)
             {
                 case PanelState.OpretKunde:
+                    if (String.IsNullOrWhiteSpace(textBox2.Text))
+                    {
+                        MessageBox.Show("Indtast venligst et efternavn.");
+                        return;
+                    }
+                    if (String.IsNullOrWhiteSpace(textBox3.Text))
+                    {
+                        MessageBox.Show("Indtast venligst en adresse.");
+                        return;
+                    }
+                    if (String.IsNullOrWhiteSpace(textBox4.Text))
+                    {
+                        MessageBox.Show("Indtast venligst et postnummer.");
+                        return;
+                    }
                     int post, tlf;
                     Int32.TryParse(textBox4.Text, out post);
                     Int32.TryParse(textBox5.Text, out tlf);
@@ -70,6 +87,11 @@ namespace OOPH2_Case_Form
                     SamletBeløb_label.Visible = true;
                     break;
                 case PanelState.OpretKonto:
+                    if (String.IsNullOrWhiteSpace(comboBox2.Text))
+                    {
+                        MessageBox.Show("Vælg venligst en kontotype.");
+                        return;
+                    }
                     int kunde;
                     Int32.TryParse(textBox1.Text, out kunde);
                     nyKonto = new Konto()
