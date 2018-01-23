@@ -13,17 +13,19 @@ namespace OOPH2_Case_Form
         /// Create a SQL Insert statement
         /// </summary>
         /// <param name="sqlstring"></param>
-        public static void Insert(string sqlstring)
+        public static bool Insert(string sqlstring)
         {
             connection.Open();
             try
             {
                 cmd.CommandText = "INSERT INTO " + sqlstring;
                 cmd.ExecuteNonQuery();
+                return true;
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
+                return false;
             }
             finally
             {
@@ -44,7 +46,7 @@ namespace OOPH2_Case_Form
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT " + sqlstring, connection);
                 return adapter;
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -69,7 +71,7 @@ namespace OOPH2_Case_Form
                 cmd.CommandText = "UPDATE " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -92,7 +94,7 @@ namespace OOPH2_Case_Form
                 cmd.CommandText = "DELETE FROM " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
                 MessageBox.Show(e.Message);
             }

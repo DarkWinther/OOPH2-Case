@@ -87,15 +87,17 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void OpretKunde()
         {
+            bool success;
             if (tlfNr == 0)
             {
-                SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES(N'" + fornavn + "', N'" + efternavn + "', " + postNr + ", N'" + adresse + "', CAST('" + oprettelsesdato.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME))");
+                success = SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, OprettelsesDato) VALUES(N'" + fornavn + "', N'" + efternavn + "', " + postNr + ", N'" + adresse + "', CAST('" + oprettelsesdato.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME))");
             }
             else
             {
-                SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, TlfNr, OprettelsesDato) VALUES(N'" + fornavn + "', N'" + efternavn + "', " + postNr + ", N'" + adresse + "', " + tlfNr + ", CAST('" + oprettelsesdato.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME))");
+                success = SQLAPI.Insert("Kunde(Fornavn, Efternavn, PostNr, Adresse, TlfNr, OprettelsesDato) VALUES(N'" + fornavn + "', N'" + efternavn + "', " + postNr + ", N'" + adresse + "', " + tlfNr + ", CAST('" + oprettelsesdato.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME))");
             }
-            MessageBox.Show("Kunden er nu oprettet!");
+            if (success)
+                MessageBox.Show("Kunden er nu oprettet!");
         }
 
         /// <summary>
