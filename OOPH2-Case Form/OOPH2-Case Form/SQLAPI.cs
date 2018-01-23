@@ -13,6 +13,7 @@ namespace OOPH2_Case_Form
         /// Create a SQL Insert statement
         /// </summary>
         /// <param name="sqlstring"></param>
+        /// <returns></returns>
         public static bool Insert(string sqlstring)
         {
             connection.Open();
