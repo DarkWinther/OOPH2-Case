@@ -96,14 +96,19 @@ namespace OOPH2_Case_Form
         /// <param name="amount"></param>
         public void Indbetaling(double amount)
         {
+            if (amount < 0)
+            {
+                MessageBox.Show("Error!\n\nDer var en taste fejl!");
+                return;
+            }
+
             double newSaldo = 0;
             System.Data.DataTable table = new System.Data.DataTable();
             adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
             adapter.Fill(table);
             newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) + amount;
             SQLAPI.Update("Konto SET Saldo = " + newSaldo + " WHERE KontoNr = " + kontoNr); // Update the saldo on the the account
-            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount +
-                ", CAST('" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
+            SQLAPI.Insert("Transaktion(Beløb,Dato,KontoNr) Values(" + amount + ", CAST('" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "' AS DATETIME)," + kontoNr + ")"); // Create a transaction
         }
 
         /// <summary>
@@ -112,6 +117,12 @@ namespace OOPH2_Case_Form
         /// <param name="amount"></param>
         public void Udbetaling(double amount)
         {
+            if (amount < 0)
+            { 
+                MessageBox.Show("Error!\n\nDer var en taste fejl!");
+                return;
+            }
+
             double newSaldo = 0;
             System.Data.DataTable table = new System.Data.DataTable();
             adapter = SQLAPI.Read("Saldo FROM Konto WHERE KontoNr = " + kontoNr);
@@ -119,7 +130,7 @@ namespace OOPH2_Case_Form
             newSaldo = Double.Parse(table.Rows[0]["Saldo"].ToString()) - amount;
             if (newSaldo < 0)
             {
-                System.Windows.Forms.MessageBox.Show("Error!\n\nDer er ikke penge nok på kontoen");
+                MessageBox.Show("Error!\n\nDer er ikke penge nok på kontoen");
             }
             else
             {
