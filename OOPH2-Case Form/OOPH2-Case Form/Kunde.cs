@@ -6,7 +6,6 @@ namespace OOPH2_Case_Form
 {
     class Kunde
     {
-        private SqlDataAdapter adapter = new SqlDataAdapter();
 
         private int _kundeNr;
         private string _fornavn;
