@@ -247,7 +247,7 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button13_Click(object sender, EventArgs e)
         {
-            adapter = SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + valgteKonto.kontoNr);
+            adapter = valgteKonto.ListTransaktioner();
             table.Clear();
             table.Columns.Clear();
             adapter.Fill(table);
@@ -291,6 +291,7 @@ namespace OOPH2_Case_Form
                     adapter.Fill(table);
                     if (table.Rows.Count != 1)
                     {
+                        table.Columns.Clear();
                         throw new KeyNotFoundException("Kunne ikke finde kundenummeret for den specificerede kunde");
                     }
                     else
@@ -353,6 +354,7 @@ namespace OOPH2_Case_Form
                     adapter.Fill(table);
                     if (table.Rows.Count != 1)
                     {
+                        table.Columns.Clear();
                         throw new KeyNotFoundException("Kontonummeret eksister ikke!");
                     }
                     else
