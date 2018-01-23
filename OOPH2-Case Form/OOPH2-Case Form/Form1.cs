@@ -247,7 +247,7 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button13_Click(object sender, EventArgs e)
         {
-            adapter = SQLAPI.Read("* FROM Transaktion WHERE KontoNr = " + valgteKonto.kontoNr);
+            adapter = valgteKonto.ListTransaktioner();
             table.Clear();
             table.Columns.Clear();
             adapter.Fill(table);
