@@ -84,7 +84,6 @@ namespace OOPH2_Case_Form
                     };
                     nyKunde.OpretKunde();
                     Form1_Load(sender, e);
-                    SamletBeløb_label.Visible = true;
                     break;
                 case PanelState.OpretKonto:
                     if (String.IsNullOrWhiteSpace(comboBox2.Text))
@@ -339,7 +338,6 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void SøgKonto_text_KeyUp(object sender, KeyEventArgs e)
         {
-            // TODO: Create the søg konto method.
             try
             {
                 if (e.KeyCode == Keys.Enter)
