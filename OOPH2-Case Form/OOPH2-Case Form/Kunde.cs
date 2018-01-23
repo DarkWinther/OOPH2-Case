@@ -133,6 +133,8 @@ namespace OOPH2_Case_Form
         /// </summary>
         public void FjernKunde()
         {
+            SQLAPI.Delete("Transaktion WHERE KontoNr = ANY (SELECT Transaktion.KontoNr FROM Transaktion, Konto " +
+                "WHERE Transaktion.KontoNr = Konto.KontoNr AND Konto.KundeNr = " + kundeNr + ");");
             SQLAPI.Delete("Konto WHERE KundeNr = " + kundeNr);
             SQLAPI.Delete("Kunde WHERE KundeNr = " + kundeNr);
         }

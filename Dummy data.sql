@@ -37,3 +37,10 @@ INSERT INTO Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(2, 3, 5000,
 INSERT INTO Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(1, 7, 5000, CAST('2012-06-05 12:00' AS datetime))
 INSERT INTO Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(2, 10, 5000, CAST('2012-06-05 12:00' AS datetime))
 INSERT INTO Konto(KontoType, KundeNr, Saldo, OprettelsesDato) VALUES(1, 5, 5000, CAST('2012-06-05 12:00' AS datetime))
+go
+
+INSERT INTO Transaktion (Beløb, Dato, KontoNr) VALUES (200, CAST('2018/01/23 12:40:00' AS DATETIME), 1);
+INSERT INTO Transaktion (Beløb, Dato, KontoNr) VALUES (1800, CAST('2018/01/23 12:40:00' AS DATETIME), 1);
+INSERT INTO Transaktion (Beløb, Dato, KontoNr) VALUES (500, CAST('2018/01/23 12:40:00' AS DATETIME), 3);
+INSERT INTO Transaktion (Beløb, Dato, KontoNr) VALUES (400, CAST('2018/01/23 12:40:00' AS DATETIME), 4);
+INSERT INTO Transaktion (Beløb, Dato, KontoNr) VALUES (800, CAST('2018/01/23 12:40:00' AS DATETIME), 5);
