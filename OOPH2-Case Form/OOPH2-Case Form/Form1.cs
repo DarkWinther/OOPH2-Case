@@ -106,9 +106,9 @@ namespace OOPH2_Case_Form
                         valgteKonto.Udbetaling(Convert.ToDouble(textBox1.Text));
                         UpdateSBL();
                     }
-                    catch (Exception exc)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Error!\n\n" + exc.Message);
+                        MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support!");
                     }
                     break;
                 case PanelState.IndsætBeløb:
@@ -117,13 +117,13 @@ namespace OOPH2_Case_Form
                         valgteKonto.Indbetaling(Convert.ToDouble(textBox1.Text));
                         UpdateSBL();
                     }
-                    catch (Exception exc)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Error!\n\n" + exc.Message);
+                        MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support!");
                     }
                     break;
                 default:
-                    MessageBox.Show("Error!\n\nDette skulle ikke ske!");
+                    MessageBox.Show("Error!\n\nDer er sket en fejl, dette skulle ikke kunne ske så kontakt IT-Support med det samme!");
                     break;
             }
             Clear(textBox1, textBox2, textBox3, textBox4, textBox5);
@@ -321,7 +321,7 @@ namespace OOPH2_Case_Form
             {
                 table.Clear();
                 SøgKunde_text.Clear();
-                MessageBox.Show("Error!\n\n" + exc.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support!");
             }
         }
 
@@ -368,7 +368,7 @@ namespace OOPH2_Case_Form
             {
                 table.Clear();
                 SøgKonto_text.Clear();
-                MessageBox.Show("Error!\n\n" + exc.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support!");
             }
         }
 

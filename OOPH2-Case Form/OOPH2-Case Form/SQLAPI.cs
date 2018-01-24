@@ -25,7 +25,7 @@ namespace OOPH2_Case_Form
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Insert");
                 return false;
             }
             finally
@@ -49,7 +49,7 @@ namespace OOPH2_Case_Form
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Read");
             }
             finally
             {
@@ -74,7 +74,7 @@ namespace OOPH2_Case_Form
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Update");
             }
             finally
             {
@@ -97,7 +97,7 @@ namespace OOPH2_Case_Form
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Delete");
             }
             finally
             {
