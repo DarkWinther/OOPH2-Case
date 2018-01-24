@@ -175,6 +175,8 @@ namespace OOPH2_Case_Form
             VisKonto_btn.Enabled = false;
             FjernKunde_btn.Enabled = false;
             Hide(label13, label14, label15, label16, label17, SamletBeløb_label);
+            if (ps == PanelState.HævBeløb || ps == PanelState.IndsætBeløb)
+                Hide(textBox1, textBox2, label1, label2, Submit_btn, SamletBeløb_label);
         }
 
         /// <summary>
@@ -231,6 +233,8 @@ namespace OOPH2_Case_Form
             Hæv_btn.Enabled = false;
             FjernKonto_btn.Enabled = false;
             UdskrivTrans_btn.Enabled = false;
+            if (ps == PanelState.HævBeløb || ps == PanelState.IndsætBeløb)
+                Hide(textBox1, textBox2, label1, label2, Submit_btn, SamletBeløb_label);
         }
 
         /// <summary>

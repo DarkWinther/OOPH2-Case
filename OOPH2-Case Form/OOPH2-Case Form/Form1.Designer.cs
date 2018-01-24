@@ -409,6 +409,7 @@
             this.SøgKunde_text.Name = "SøgKunde_text";
             this.SøgKunde_text.Size = new System.Drawing.Size(300, 25);
             this.SøgKunde_text.TabIndex = 14;
+            this.SøgKunde_text.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox6_Enter);
             this.SøgKunde_text.Enter += new System.EventHandler(this.textBox6_Enter);
             this.SøgKunde_text.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyUp);
             // 
