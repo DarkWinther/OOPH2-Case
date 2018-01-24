@@ -457,6 +457,7 @@
             this.label17.Size = new System.Drawing.Size(53, 19);
             this.label17.TabIndex = 4;
             this.label17.Text = "label17";
+            this.label17.Visible = false;
             // 
             // label16
             // 
@@ -467,6 +468,7 @@
             this.label16.Size = new System.Drawing.Size(53, 19);
             this.label16.TabIndex = 3;
             this.label16.Text = "label16";
+            this.label16.Visible = false;
             // 
             // label15
             // 
@@ -477,6 +479,7 @@
             this.label15.Size = new System.Drawing.Size(53, 19);
             this.label15.TabIndex = 2;
             this.label15.Text = "label15";
+            this.label15.Visible = false;
             // 
             // label14
             // 
@@ -487,6 +490,7 @@
             this.label14.Size = new System.Drawing.Size(53, 19);
             this.label14.TabIndex = 1;
             this.label14.Text = "label14";
+            this.label14.Visible = false;
             // 
             // label13
             // 
@@ -497,6 +501,7 @@
             this.label13.Size = new System.Drawing.Size(53, 19);
             this.label13.TabIndex = 0;
             this.label13.Text = "label13";
+            this.label13.Visible = false;
             // 
             // SamletBeløb_label
             // 
@@ -507,6 +512,7 @@
             this.SamletBeløb_label.Size = new System.Drawing.Size(17, 19);
             this.SamletBeløb_label.TabIndex = 17;
             this.SamletBeløb_label.Text = "0";
+            this.SamletBeløb_label.Visible = false;
             // 
             // ValgteKunde_label
             // 

@@ -41,7 +41,8 @@ namespace OOPH2_Case_Form
                 strColl.Add(table.Rows[i][0].ToString());
             }
             SøgKunde_text.AutoCompleteCustomSource = strColl;
-            Hide(label13, label14, label15, label16, label17, SamletBeløb_label);
+            table.Clear();
+            table.Columns.Clear();
         }
 
         /// <summary>
@@ -128,10 +129,10 @@ namespace OOPH2_Case_Form
             table.Clear();
             table.Columns.Clear();
             Form1_Load(sender, e);
-            table.Clear();
-            table.Columns.Clear();
             Clear(textBox1, textBox2, textBox3, textBox4, textBox5);
             comboBox2.ResetText();
+            if (ps == PanelState.HævBeløb || ps == PanelState.IndsætBeløb)
+                SamletBeløb_label.Visible = true;
         }
 
         /// <summary>
@@ -141,6 +142,8 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
+            textBox1.KeyPress -= new KeyPressEventHandler(NumbersOnly);
+            textBox1.KeyPress -= new KeyPressEventHandler(textBox5_KeyPress);
             HideAll();
             Show(label1, label2, label3, label4, label5, textBox1, textBox2, textBox3, textBox4, textBox5, Submit_btn);
             label1.Text = "Fornavn";
@@ -171,6 +174,7 @@ namespace OOPH2_Case_Form
             Form1_Load(sender, e);
             VisKonto_btn.Enabled = false;
             FjernKunde_btn.Enabled = false;
+            Hide(label13, label14, label15, label16, label17, SamletBeløb_label);
         }
 
         /// <summary>
@@ -195,6 +199,8 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button9_Click(object sender, EventArgs e)
         {
+            textBox1.KeyPress -= new KeyPressEventHandler(NumbersOnly);
+            textBox1.KeyPress += new KeyPressEventHandler(textBox5_KeyPress);
             HideAll();
             Show(label1, label2, textBox1, comboBox2, Submit_btn);
             label1.Text = "KundeNr";
@@ -234,6 +240,8 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button11_Click(object sender, EventArgs e)
         {
+            textBox1.KeyPress -= new KeyPressEventHandler(textBox5_KeyPress);
+            textBox1.KeyPress += new KeyPressEventHandler(NumbersOnly);
             HideAll();
             Show(label1, textBox1, Submit_btn);
             Submit_btn.Text = "Hæv beløb";
@@ -248,6 +256,8 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void button12_Click(object sender, EventArgs e)
         {
+            textBox1.KeyPress -= new KeyPressEventHandler(textBox5_KeyPress);
+            textBox1.KeyPress += new KeyPressEventHandler(NumbersOnly);
             HideAll();
             Show(label1, textBox1, Submit_btn);
             Submit_btn.Text = "Indsæt beløb";
@@ -446,6 +456,19 @@ namespace OOPH2_Case_Form
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Only allow numbers and period
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NumbersOnly(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
