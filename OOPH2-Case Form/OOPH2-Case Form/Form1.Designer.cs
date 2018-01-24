@@ -585,6 +585,7 @@
             this.label19.Size = new System.Drawing.Size(53, 19);
             this.label19.TabIndex = 1;
             this.label19.Text = "label19";
+            this.label19.Visible = false;
             // 
             // label18
             // 
@@ -595,6 +596,7 @@
             this.label18.Size = new System.Drawing.Size(53, 19);
             this.label18.TabIndex = 0;
             this.label18.Text = "label18";
+            this.label18.Visible = false;
             // 
             // label6
             // 
