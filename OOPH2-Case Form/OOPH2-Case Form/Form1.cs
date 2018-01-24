@@ -423,6 +423,19 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
+        /// Only allow numbers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
         /// Clear panels method
         /// </summary>
         /// <param name="txt"></param>
