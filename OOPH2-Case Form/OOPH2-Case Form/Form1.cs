@@ -443,7 +443,7 @@ namespace OOPH2_Case_Form
             table.Clear();
             table.Columns.Clear();
             adapter.Fill(table);
-            SamletBeløb_label.Text = String.IsNullOrWhiteSpace(table.Rows[0][0].ToString()) ? "0" : table.Rows[0][0].ToString();
+            SamletBeløb_label.Text = String.IsNullOrWhiteSpace(table.Rows[0][0].ToString()) ? "0.00" : String.Format("{0:N2}", Convert.ToDouble(table.Rows[0][0].ToString()));
             table.Clear();
             table.Columns.Clear();
         }
@@ -468,6 +468,8 @@ namespace OOPH2_Case_Form
         /// <param name="e"></param>
         private void NumbersOnly(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == ',')
+                e.KeyChar = '.';
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
