@@ -104,7 +104,7 @@ namespace OOPH2_Case_Form
                     try
                     {
                         valgteKonto.Udbetaling(Convert.ToDouble(textBox1.Text));
-                        SamletBeløb_label.Text = (Double.Parse(SamletBeløb_label.Text) - Double.Parse(textBox1.Text)).ToString();
+                        UpdateSBL();
                     }
                     catch (Exception exc)
                     {
@@ -115,7 +115,7 @@ namespace OOPH2_Case_Form
                     try
                     {
                         valgteKonto.Indbetaling(Convert.ToDouble(textBox1.Text));
-                        SamletBeløb_label.Text = (Double.Parse(SamletBeløb_label.Text) + Double.Parse(textBox1.Text)).ToString();
+                        UpdateSBL();
                     }
                     catch (Exception exc)
                     {
@@ -311,16 +311,10 @@ namespace OOPH2_Case_Form
                     label15.Text = valgteKunde.adresse;
                     label16.Text = valgteKunde.postNr + " " + valgteKunde.byNavn;
                     label17.Text = valgteKunde.tlfNr == 0 ? "N/A" : valgteKunde.tlfNr.ToString();
-                    adapter = SQLAPI.Read("Sum(Saldo) FROM Konto WHERE KundeNr = " + valgteKunde.kundeNr);
-                    table.Clear();
-                    table.Columns.Clear();
-                    adapter.Fill(table);
-                    SamletBeløb_label.Text = String.IsNullOrWhiteSpace(table.Rows[0][0].ToString()) ? "0" : table.Rows[0][0].ToString();
+                    UpdateSBL();
                     Show(label13, label14, label15, label16, label17, SamletBeløb_label);
                     VisKonto_btn.Enabled = true;
                     FjernKunde_btn.Enabled = true;
-                    table.Clear();
-                    table.Columns.Clear();
                 }
             }
             catch (Exception exc)
@@ -410,6 +404,20 @@ namespace OOPH2_Case_Form
                 typeliste.Add(row[0].ToString());
             }
             comboBox2.DataSource = typeliste;
+            table.Clear();
+            table.Columns.Clear();
+        }
+
+        /// <summary>
+        /// Opdaterer SamletBeløb_label med den samlede saldo fra serveren.
+        /// </summary>
+        private void UpdateSBL()
+        {
+            adapter = SQLAPI.Read("Sum(Saldo) FROM Konto WHERE KundeNr = " + valgteKunde.kundeNr);
+            table.Clear();
+            table.Columns.Clear();
+            adapter.Fill(table);
+            SamletBeløb_label.Text = String.IsNullOrWhiteSpace(table.Rows[0][0].ToString()) ? "0" : table.Rows[0][0].ToString();
             table.Clear();
             table.Columns.Clear();
         }
