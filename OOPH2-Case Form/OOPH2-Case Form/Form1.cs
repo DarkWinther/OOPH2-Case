@@ -333,7 +333,7 @@ namespace OOPH2_Case_Form
                     FjernKunde_btn.Enabled = true;
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 table.Clear();
                 SøgKunde_text.Clear();
@@ -380,7 +380,7 @@ namespace OOPH2_Case_Form
                     UdskrivTrans_btn.Enabled = true;
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 table.Clear();
                 SøgKonto_text.Clear();
