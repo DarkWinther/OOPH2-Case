@@ -23,7 +23,7 @@ namespace OOPH2_Case_Form
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Insert");
                 return false;
@@ -47,7 +47,7 @@ namespace OOPH2_Case_Form
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT " + sqlstring, connection);
                 return adapter;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Read");
             }
@@ -72,7 +72,7 @@ namespace OOPH2_Case_Form
                 cmd.CommandText = "UPDATE " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Update");
             }
@@ -95,7 +95,7 @@ namespace OOPH2_Case_Form
                 cmd.CommandText = "DELETE FROM " + sqlstring;
                 cmd.ExecuteNonQuery();
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 MessageBox.Show("Error!\n\nDer er sket en fejl, hvis dette forsætter så kontakt IT-Support! Giv dem denne fejl kode: Error in Delete");
             }
