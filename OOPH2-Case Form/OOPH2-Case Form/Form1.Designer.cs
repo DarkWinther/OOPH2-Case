@@ -289,6 +289,7 @@
             this.textBox5.Size = new System.Drawing.Size(156, 25);
             this.textBox5.TabIndex = 5;
             this.textBox5.Visible = false;
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox4
             // 
@@ -298,6 +299,7 @@
             this.textBox4.Size = new System.Drawing.Size(156, 25);
             this.textBox4.TabIndex = 4;
             this.textBox4.Visible = false;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // textBox3
             // 
