@@ -83,14 +83,6 @@ namespace OOPH2_Case_Form
         }
 
         /// <summary>
-        /// Updates the rente.
-        /// </summary>
-        public void RetRentesats(float newrente)
-        {
-            SQLAPI.Update("KontoType SET Rentesats = " + newrente + " WHERE TypeNr = " + typeNr);
-        }
-
-        /// <summary>
         /// Creates a transaction for a indbetaling.
         /// </summary>
         /// <param name="amount"></param>
