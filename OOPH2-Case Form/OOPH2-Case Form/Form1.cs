@@ -41,7 +41,7 @@ namespace OOPH2_Case_Form
                 strColl.Add(table.Rows[i][0].ToString());
             }
             SøgKunde_text.AutoCompleteCustomSource = strColl;
-            Hide(label13, label14, label15, label16, label17, label18, label19, SamletBeløb_label);
+            Hide(label13, label14, label15, label16, label17, SamletBeløb_label);
         }
 
         /// <summary>
@@ -83,7 +83,6 @@ namespace OOPH2_Case_Form
                         tlfNr = tlf
                     };
                     nyKunde.OpretKunde();
-                    Form1_Load(sender, e);
                     break;
                 case PanelState.OpretKonto:
                     if (String.IsNullOrWhiteSpace(comboBox2.Text))
@@ -126,6 +125,11 @@ namespace OOPH2_Case_Form
                     MessageBox.Show("Error!\n\nDer er sket en fejl, dette skulle ikke kunne ske så kontakt IT-Support med det samme!");
                     break;
             }
+            table.Clear();
+            table.Columns.Clear();
+            Form1_Load(sender, e);
+            table.Clear();
+            table.Columns.Clear();
             Clear(textBox1, textBox2, textBox3, textBox4, textBox5);
             comboBox2.ResetText();
         }
@@ -162,6 +166,11 @@ namespace OOPH2_Case_Form
             }
             valgteKunde.FjernKunde();
             MessageBox.Show("Den valgte kunde blev fjernet!");
+            table.Clear();
+            table.Columns.Clear();
+            Form1_Load(sender, e);
+            VisKonto_btn.Enabled = false;
+            FjernKunde_btn.Enabled = false;
         }
 
         /// <summary>
@@ -209,6 +218,13 @@ namespace OOPH2_Case_Form
             }
             valgteKonto.FjernKonto();
             MessageBox.Show("Den valgte konto blev fjernet!");
+            table.Clear();
+            table.Columns.Clear();
+            Hide(label18, label19);
+            Indsæt_btn.Enabled = false;
+            Hæv_btn.Enabled = false;
+            FjernKonto_btn.Enabled = false;
+            UdskrivTrans_btn.Enabled = false;
         }
 
         /// <summary>
